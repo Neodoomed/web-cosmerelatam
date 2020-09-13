@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <Home />
       <Noticias />
-
+      <Footer />
     </div>
   );
 }
