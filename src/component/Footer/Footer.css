@@ -1,0 +1,87 @@
+.Footer{
+    background-color: #202020;
+    padding-top: 20px;
+}
+
+.Footer div{
+    width: 1200px;
+
+    margin: auto;
+
+}
+
+.line_1{
+    border: 1px solid #868686;
+}
+
+.copyright{
+    color: #ffffff;
+}
+
+.social{
+    display: flex;
+	padding: 0%;
+	top: 0;
+	left: 0;
+    right: 0;
+    list-style: none;
+}
+
+.social li{
+    margin-left: 10px;
+}
+
+.social a {
+    display: block;
+    background: #999999;
+    color: #efefef;
+    border-radius: 20px;
+    text-decoration: none;
+    line-height: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    
+}
+
+.social li a div{
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 60%;
+    height: 60%;
+    
+}
+
+.fb_icon{
+    background-image: url('./facebook.png');
+}
+.tw_icon{
+    background-image: url('./twitter.png');
+}
+.ig_icon{
+    background-image: url('./instagram.png');
+}
+.dc_icon{
+    background-image: url('./discordia.png');
+}
+
+
+.social a.tw:hover {
+    background: #00acee;
+} 
+.social a.fb:hover {
+    background: #3b5998;
+}
+.social a.yt:hover {
+    background: #dd4b39;
+}
+.social a.dc:hover {
+    background: #3b5998;
+}
+.social a.ig:hover {
+    background: #bb8d0e;
+}

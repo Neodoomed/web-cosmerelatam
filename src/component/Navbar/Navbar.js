@@ -6,14 +6,14 @@ class Navbar extends Component{
     render(){
         
         return(
-            <nav class="NavbarItems">
+            <nav className="NavbarItems">
                 <div className="nav_logo">
                     
                 </div>
                 <div className="menu-icon">
                     
                 </div>
-                <ul class="nav_link">
+                <ul className="nav_link">
                     {MenuItems.map((item, index) => {
                         return(
                             <li key={index}>

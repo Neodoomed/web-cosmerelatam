@@ -18,10 +18,5 @@ export const MenuItems = [
         title:'Cosmere',
         url: '#',
         cName: 'nav_link'
-    },
-    {
-        title:'Redes',
-        url: '#',
-        cName: 'nav_link'
     }
 ]

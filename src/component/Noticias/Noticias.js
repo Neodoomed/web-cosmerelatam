@@ -12,8 +12,31 @@ class Noticias extends Component{
                     </div>
                     <div className="news_conteiner">
                         <ul className="news_tab">
-                            <li class="tab_item">Ultimas</li>
-                            
+                            <li className="tab_titel">
+                                <h2>Mas Recientes</h2><br/>
+                            </li>
+
+                            <a href="#"><li className="tab_item">   
+                                La Web esta en desarrollo, aqui se enlistaran la noticas.
+                            </li></a>
+
+                            <a href="#"><li className="tab_item">
+                                La Web esta en desarrollo, aqui se enlistaran la noticas.
+                            </li></a>
+                            <a href="#"><li className="tab_item">
+                                La Web esta en desarrollo, aqui se enlistaran la noticas.
+                            </li></a>
+                            <a href="#"><li className="tab_item">   
+                                La Web esta en desarrollo, aqui se enlistaran la noticas.
+                            </li></a>
+                            <a href="#"><li className="tab_item">
+                                La Web esta en desarrollo, aqui se enlistaran la noticas.
+                            </li></a>
+                            <li className="tab_more">
+                                <a href="#" className="more">
+                                    <div className="more_icon"></div>Más
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
