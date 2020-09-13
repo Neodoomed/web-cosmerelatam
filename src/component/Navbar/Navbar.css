@@ -1,5 +1,6 @@
 .NavbarItems {
-    background: linear-gradient(0deg, rgb(40, 40, 40, 1.0) 0% , rgba(40, 40, 40, 0.5) 70%, rgba(40, 40, 40, 0.5) 100%);
+	background: linear-gradient(0deg, rgb(40, 40, 40, 1.0) 0% , rgba(40, 40, 40, 0.5) 70%, rgba(40, 40, 40, 0.5) 100%);
+	backdrop-filter: blur(3px);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
