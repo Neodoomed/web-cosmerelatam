@@ -5,7 +5,7 @@ class Noticias extends Component{
     render(){
         return(
             <section className="noticias">
-                <h1 className="display-3">Secccion de noticias</h1>
+                <h1 className="display-3">Noticias</h1>
                 <div className="news_main">
                     <div className="news_swiper">
 

@@ -2,7 +2,7 @@
 	background: linear-gradient(0deg, rgb(40, 40, 40, 1.0) 0% , rgba(40, 40, 40, 0.5) 70%, rgba(40, 40, 40, 0.5) 100%);
 	backdrop-filter: blur(3px);
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	padding: 10px 10%;
 	position: fixed;
@@ -15,7 +15,7 @@
 .nav_logo{
 	width: 80px;
 	height: 50px;
-    cursor: pointer;
+    
     background: url(../../LogoCL.png);
     background-repeat: no-repeat;
 	background-size: cover;
@@ -27,6 +27,7 @@
 	color: #ffffff;
 	margin-top: auto;
 	margin-bottom: auto;
+	margin-right: auto;
 }
 
 .nav_link li{
@@ -47,5 +48,9 @@
 	text-shadow:0px 0px 30px #0088a9;
 	transition: all 0.2s ease-in;
 	list-style: none;
-  }
+}
+
+.btn_login{
+	margin-right: auto;
+}
   

@@ -1,22 +1,28 @@
 import React, {Component, lazy, Suspense} from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Navbar from './component/Navbar/Navbar';
-/*import Home from './component/Home/Home';*/
-import Noticias from './component/Noticias/Noticias';
+//import Home from './component/Home/Home';
+//import Noticias from './component/Noticias/Noticias';
 import Footer from './component/Footer/Footer';
-const Home = lazy(()=> import('./component/Home/Home'));
+//const Home = lazy(()=> import('./component/Home/Home'));
 
+//Pages
+import Index from './pages/index';
+import NonFound from './pages/404';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Suspense fallback={<div>Loading...</div>}>
-      <Home />
-      <Noticias />
-      <Footer />
-      </Suspense>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Index} />
+          <Route exact path="/404" component={NonFound} />
+          <Route component={NonFound} />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
-
 export default App;
