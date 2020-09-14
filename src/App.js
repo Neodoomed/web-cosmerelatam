@@ -10,6 +10,8 @@ import Footer from './component/Footer/Footer';
 import Index from './pages/index';
 import NonFound from './pages/404';
 
+//Agregar /web-cosmerelatam a las url antes de hacer el build 
+
 function App() {
   return (
     <Router>
