@@ -8,16 +8,17 @@ class Navbar extends Component{
         
         return(
             <nav className="NavbarItems">
-                <div className="nav_logo">
-                    
+                <div>
+                    <span className="nav_logo"></span>
                 </div>
                 <div className="menu-icon">
-                    
+                    <span className="bars "></span>
                 </div>
-                <ul className="nav_link">
+                
+                <ul className="nav_link item">
                     {MenuItems.map((item, index) => {
                         return(
-                            <li key={index}>
+                            <li key={index} className="item">
                                 <Link to={item.url}>
                                     {item.title}
                                 </Link>
@@ -25,9 +26,10 @@ class Navbar extends Component{
                         )
                     })}
                 </ul>
-                <div>
+                <div className="item">
                     <button className="btn_login btn btn-outline-info btn-lg">Inciar seción</button>
                 </div>
+                
             </nav>
         )
     }

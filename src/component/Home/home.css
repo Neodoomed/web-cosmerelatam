@@ -1,5 +1,14 @@
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
 section{
-    padding: 100px;
+    /*padding: 100px;*/
+    box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 .banner{
@@ -13,6 +22,8 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
 .home{

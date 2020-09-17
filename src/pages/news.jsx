@@ -7,7 +7,7 @@ class News extends Component{
         return(
             <div className="news">
                 <section className="news">
-
+                    
                 </section>
             </div>
             )
