@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './Noticias.css';
 
+//
+
 class Noticias extends Component{
     render(){
         return(
@@ -15,7 +17,6 @@ class Noticias extends Component{
                             <li className="tab_titel">
                                 <h2>Mas Recientes</h2><br/>
                             </li>
-
                             <a href="#"><li className="tab_item">   
                                 La Web esta en desarrollo, aqui se enlistaran la noticas.
                             </li></a>

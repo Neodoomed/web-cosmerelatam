@@ -13,7 +13,7 @@ section{
 
 .banner{
     position: relative;
-    min-width: 100vh;
+    min-width: 100vw;
     min-height: 100vh;
     background: url("./RhythmOfWar.png");
     background-size: cover;
@@ -27,7 +27,14 @@ section{
 }
 
 .home{
-    padding-top: -100px;
+    padding-top: -50px;
+    width: 300px;
+}
+@media all and (min-width: 768px){
+    .home{
+        padding-top: -50px;
+        width: auto;
+    }
 }
 
 .titulo{

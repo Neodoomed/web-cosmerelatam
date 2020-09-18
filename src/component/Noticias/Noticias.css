@@ -12,7 +12,7 @@
     padding-top: 100px;
     padding-bottom: 100px;*/
     position: relative;
-    min-width: 100vh;
+    min-width: 100vw;
     background: url("./wr_wrap_web.jpg");
     background-size: cover;
     background-position: center;
@@ -94,6 +94,7 @@
 }
 
 /* Celular */
+
 .noticias .news_main{
     display: flex;
     flex-wrap: wrap;
@@ -102,6 +103,20 @@
     margin: 0%;
 }
 
+.noticias .news_swiper{
+    max-width: 320px;
+    min-width: 320px;
+    padding: 0%;
+    align-self: center;
+}
+
+.noticias .news_conteiner{
+    max-width: 320px;
+    min-width: 320px;
+    padding: 0%;
+    align-self: center;
+    
+}
 
 /* PC */
 
