@@ -1,22 +1,22 @@
 export const MenuItems = [
     {
         title:'Home',
-        url: '/',
+        url: '/web-cosmerelatam/',
         cName: 'nav_link'
     },
     {
         title:'Noticias',
-        url: '/news',
+        url: '/web-cosmerelatam/news',
         cName: 'nav_link'
     },
     {
         title:'Artistas',
-        url: '/artists',
+        url: '/web-cosmerelatam/artists',
         cName: 'nav_link'
     },
     {
         title:'Cosmere',
-        url: '/cosmere',
+        url: '/web-cosmerelatam/cosmere',
         cName: 'nav_link'
     }
 ]

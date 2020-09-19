@@ -3,33 +3,31 @@ import {MenuItems} from "./MenuItems";
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 
+//<button className="btn-lg">Inciar seción</button>
+
 class Navbar extends Component{
     render(){
         
         return(
             <nav className="NavbarItems">
-                <div>
-                    <span className="nav_logo"></span>
-                </div>
-                <div className="menu-icon">
-                    <span className="bars "></span>
-                </div>
-                
-                <ul className="nav_link item">
+                <span className="nav_logo"></span>
+                <input type="checkbox" className="menuBtn" id="menuBtn"/>
+                <label className="menuIcon" for="menuBtn">
+                    <span className="bars"></span>
+                </label>
+                <ul className="nav_link">
                     {MenuItems.map((item, index) => {
                         return(
-                            <li key={index} className="item">
+                            <li key={index}>
                                 <Link to={item.url}>
                                     {item.title}
                                 </Link>
                             </li>
                         )
+                        
                     })}
+                    <li className="barLine newsHome"></li>
                 </ul>
-                <div className="item">
-                    <button className="btn_login btn btn-outline-info btn-lg">Inciar seción</button>
-                </div>
-                
             </nav>
         )
     }

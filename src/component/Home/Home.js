@@ -11,7 +11,7 @@ class Home extends Component{
                 </div>
                 <div className="btn_join">
                     <p className="join">Acepta tu investidura y comeinza este viaje...</p>
-                    <button className="btn btn-primary btn-lg">Unete</button>
+                    <button className="btn-join">Unete</button>
                 </div>
             </section>
         )

@@ -1,40 +1,21 @@
-*{
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-}
-
-section{
-    /*padding: 100px;*/
-    box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-}
-
 .banner{
     position: relative;
     min-width: 100vw;
     min-height: 100vh;
     background: url("./RhythmOfWar.png");
     background-size: cover;
-    background-position: center;
+    background-position: right;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding-top: 70px;
     margin: 0;
 }
 
 .home{
-    padding-top: -50px;
-    width: 300px;
-}
-@media all and (min-width: 768px){
-    .home{
-        padding-top: -50px;
-        width: auto;
-    }
+    align-self: flex-start;
+    margin: 0px 20px;
 }
 
 .titulo{
@@ -72,4 +53,40 @@ section{
     margin-left: auto;
     margin-right: auto;
     font-size: 19px;
+}
+.btn-join{
+	border: 1px solid #005b72;
+	border-radius: 5px;
+	background: #005b72;
+    color: #ffffff;
+	outline: none;
+	cursor: pointer;
+	margin: 0;
+	padding: 10px 20px;
+	margin-left: auto;
+}
+.btn-join:hover{
+	border: 1px solid #0088a9;
+	border-radius: 5px;
+	background: #0088a9;
+	color: #ffffff;
+    outline: none;
+    outline: rgba(0,136,169, .5);
+}
+.btn-join:active{
+	border: 1px solid #0088a9;
+	border-radius: 5px;
+	background: #005b72;
+	color: #ffffff;
+	outline: none;
+}
+.btn-join:focus{
+	outline: none;
+}
+
+@media all and (min-width: 768px){
+    .home{
+        align-self: flex-start;
+        margin: auto 20px;
+    }
 }
