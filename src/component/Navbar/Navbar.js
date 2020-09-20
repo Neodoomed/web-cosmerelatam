@@ -24,9 +24,8 @@ class Navbar extends Component{
                                 </Link>
                             </li>
                         )
-                        
                     })}
-                    <li className="barLine newsHome"></li>
+                    <li className="barLine newsHome" id="lineNav"></li>
                 </ul>
             </nav>
         )

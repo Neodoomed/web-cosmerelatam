@@ -10,7 +10,7 @@ class Home extends Component{
                     <p>La web oficial de Cosmere Latam. Donde el fandom del Cosmere de toda latinoamerica se reune.</p>   
                 </div>
                 <div className="btn_join">
-                    <p className="join">Acepta tu investidura y comeinza este viaje...</p>
+                    <p className="join">Acepta tu investidura y comienza este viaje...</p>
                     <button className="btn-join">Unete</button>
                 </div>
             </section>

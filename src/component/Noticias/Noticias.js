@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './Noticias.css';
 
 //
@@ -17,25 +18,25 @@ class Noticias extends Component{
                             <li className="tab_titel">
                                 <h2>Mas Recientes</h2><br/>
                             </li>
-                            <a href="#"><li className="tab_item">   
+                            <li className="tab_item"><a href="#">   
                                 La Web esta en desarrollo, aqui se enlistaran la noticas.
-                            </li></a>
+                            </a></li>
 
-                            <a href="#"><li className="tab_item">
+                            <li className="tab_item"><a href="#">
                                 La Web esta en desarrollo, aqui se enlistaran la noticas.
-                            </li></a>
-                            <a href="#"><li className="tab_item">
+                            </a></li>
+                            <li className="tab_item"><a href="#">
                                 La Web esta en desarrollo, aqui se enlistaran la noticas.
-                            </li></a>
-                            <a href="#"><li className="tab_item">   
+                            </a></li>
+                            <li className="tab_item"><a href="#">   
                                 La Web esta en desarrollo, aqui se enlistaran la noticas.
-                            </li></a>
-                            <a href="#"><li className="tab_item">
+                            </a></li>
+                            <li className="tab_item"><a href="#">
                                 La Web esta en desarrollo, aqui se enlistaran la noticas.
-                            </li></a>
+                            </a></li>
                             <li className="tab_more">
-                                <a href="#" className="more">
-                                    <div className="more_icon"></div>Más
+                                <a href="#" className="moreIcon">
+                                    <Link to="/web-cosmerelatam/news" >Más</Link>
                                 </a>
                             </li>
                         </ul>

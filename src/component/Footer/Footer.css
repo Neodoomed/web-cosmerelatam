@@ -1,14 +1,13 @@
 .Footer{
     background-color: #202020;
-    padding-top: 20px;
     position: relative;
-    min-width: 100vw;
+    min-width: 100%;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
-    padding: 20px 0px;
+    padding: 50px 0px;
 }
 
 .Footer div{
@@ -28,13 +27,13 @@
     }
 }
 
-
-
 .line_1{
+    margin-top: 10px;
     border: 1px solid #868686;
 }
 
 .copyright{
+    margin: 20px 10px;
     color: #ffffff;
 }
 
@@ -45,14 +44,15 @@
 	left: 0;
     right: 0;
     list-style: none;
+    padding: 0px;
 }
 
 .social li{
-    margin-left: 10px;
+
+    margin: 5px 10px;
 }
 
 .social a {
-    display: block;
     background: #999999;
     color: #efefef;
     border-radius: 20px;
@@ -62,7 +62,6 @@
     height: 40px;
     font-size: 18px;
     display: flex;
-    
 }
 
 .social li a div{
@@ -73,7 +72,6 @@
     margin: auto;
     width: 60%;
     height: 60%;
-    
 }
 
 .fb_icon{

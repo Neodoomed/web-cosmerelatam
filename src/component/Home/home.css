@@ -1,6 +1,7 @@
+
 .banner{
     position: relative;
-    min-width: 100vw;
+    min-width: 100%;
     min-height: 100vh;
     background: url("./RhythmOfWar.png");
     background-size: cover;
@@ -15,7 +16,8 @@
 
 .home{
     align-self: flex-start;
-    margin: 0px 20px;
+    margin: 0px 0px;
+    padding: 0px 5%;
 }
 
 .titulo{
