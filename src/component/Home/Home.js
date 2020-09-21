@@ -7,7 +7,7 @@ class Home extends Component{
             <section className="banner">
                 <div className="home">
                     <h1 className="titulo">Comere Latam</h1>
-                    <p>La web oficial de Cosmere Latam. Donde el fandom del Cosmere de toda latinoamerica se reune.</p>   
+                    <p>Donde el fandom del Cosmere de toda latinoamerica se reune.</p>   
                 </div>
                 <div className="btn_join">
                     <p className="join">Acepta tu investidura y comienza este viaje...</p>
