@@ -7,7 +7,6 @@ import './Navbar.css';
 
 class Navbar extends Component{
     render(){
-        
         return(
             <nav className="NavbarItems">
                 <span className="nav_logo"></span>
@@ -25,7 +24,7 @@ class Navbar extends Component{
                             </li>
                         )
                     })}
-                    <li className="barLine newsHome" id="lineNav"></li>
+                    <li className="barLine set--News" id="lineNav"></li>
                 </ul>
             </nav>
         )

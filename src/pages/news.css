@@ -1,55 +1,275 @@
 .news{
     position: relative;
     min-width: 100%;
-    background: url(./../imges/shallan.jpg);
-    background-size: cover;
+    background: url(./../imges/shallan.jpg) no-repeat;
+    background-size: auto;
     background-position: left top;
+    background-position: 20% top;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 0;
     padding-top: 70px;
     margin: 0;
 }
 
+/***Slider nuevas noticias***/
 .topNews{
+    margin: 0;
+    padding: 70px 0px;
+}
+
+.sliderMain{
+    max-width: 300px;
+    overflow: hidden;
+}
+
+.topNews ul{
+    position: relative;
     display: flex;
 	align-items: center;
-    align-content: space-between;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0;
+
+    transform: translate(0px, 0px);
+    transition: all 600ms ease;
+    animation-name: autoSlide;
+    animation-duration: 20.5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
 }
 
 .topNews il{
-    width: 300px;
+    min-width: 290px;
+    width: 290px;
     height: 420px;
     background: rgba(30, 30, 30, 0.7);
     backdrop-filter: blur(3px);
     border-radius: 5px;
-    padding: 20px 20px;
-    margin: 0px 5px;
+    padding: 15px;
+    margin: 10px 5px;
     display: flex;
     flex-direction: column;
+    transition: all 0.2s ease-out;
 }
+.topNews il:hover{
+    box-shadow: 0px 0px 0 2px rgba(0, 0, 0, 0.7);
+}
+
 .topNews il .newsImg{
     background: #333333;
-    width: 100%;
     height: 180px;
-    margin: 0 auto;
+    margin: 0;
 }
-.topNews il .newsTitle p{
+.topNews il .newsTitle h1{
     color: #ffffff;
     font-size: 25px;
     font-weight: 500;
+    text-shadow: 0px 0px 3px #000000;
+    margin: 10px 0px;
 }
 .topNews il .newsText p{
     color: #ffffff;
     font-size: 18px;
+    overflow: hidden;
+    text-shadow: 0px 0px 3px #000000;
+}
+.topNews il .newsOrigin{
+    margin-top: auto;
+    display: flex;
+    overflow: hidden;
+    max-height: 20px;
+    font-size: 14px;
+    text-shadow: 0px 0px 3px #000000;
+}
+.topNews il .newsOrigin .date{
+    margin-left: 0;
+    color: rgb(197, 194, 194);
+}
+.topNews il .newsOrigin .origin{
+    margin-left: auto;
+    color: rgb(197, 194, 19);
 }
 
+.topNews .sliderBar{
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topNews input{
+    display: none;
+}
+.topNews .sliderBar .radioSlide{
+    margin: 5px 15px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: rgba(57, 59, 64, 0.3);
+    border: solid 5px rgba(57, 59, 64, 0.5);
+    border-radius: 10px;
+}
+
+input[id="slider1"]:checked ~ .sliderMain .slider{
+    animation: none;
+    transform: translate(0, 0);
+}
+input[id="slider1"]:checked ~ .sliderBar .radioSlide[for="slider1"]{
+    background: rgba(197, 194, 19, .6);
+}
+
+input[id="slider2"]:checked ~ .sliderMain .slider{
+    animation: none;
+    transform: translate(-300px, 0px);
+}
+input[id="slider2"]:checked ~ .sliderBar .radioSlide[for="slider2"]{
+    background: rgba(197, 194, 19, .6);
+}
+
+input[id="slider3"]:checked ~ .sliderMain .slider{
+    animation: none;
+    transform: translate(-600px, 0px);
+}
+input[id="slider3"]:checked ~ .sliderBar .radioSlide[for="slider3"]{
+    background: rgba(197, 194, 19, .6);
+}
+
+
+/***Filtro de Categorias***/
 .news .category{
-    background-color: silver;
+    background-color: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 10px #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    padding: 10px 0px;
+}
+.news .category ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.news .category il{
+    display: inline-block;
+    min-width: 155px;
+    height: 36px;
+    line-height: 36px;
+    background-color: rgba(57, 59, 64, 0.2);
+    color: #393b40;
+    border-radius: 4px;
+    text-align: center;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s 0s ease;
+}
+.news .category .select, .news .category il:hover{
+    color: rgb(197, 194, 19);
+    background-color: #393b40;
+    
+}
+
+/***Lista de noticias***/
+.news .newsList{
+    width: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    padding: 50px 0px;
+}
+.news .newsList ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+.news .newsList il{
+    min-width: 300px;
+    width: 90%;
+    height: 200px;
+    background: rgb(230, 230, 230);
+    border-radius: 5px;
+    padding: 0;
+    margin: 10px 0px;
+    transition: all .2s ease-out;
+}
+.news .newsList il:hover{
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 0 4px rgb(197, 194, 19);
+}
+.news .newsList .more{
+    min-width: 300px;
+    width: 90%;
+    height: 50px;
+    background-color: rgba(57, 59, 64, 0.8);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.2s 0s ease-out;
     display: flex;
 	align-items: center;
-	align-content: space-between;
+    justify-content: center;
+}
+.news .newsList .more:hover{
+    color: rgb(197, 194, 19);
+    background-color: #393b40;
+}
+
+
+@media all and (min-width: 768px){
+    .news{
+        background-size: cover;
+    }
+    .topNews ul{
+        flex-direction: row;
+        padding: 0px 0px;
+        transform: translate(0, 0);
+        animation: none;
+    }
+    .topNews il{
+        margin: 5px;
+    }
+    .sliderMain{
+        max-width: 100%;
+    }
+    .topNews .sliderBar{
+        display: none;
+    }
+}
+
+/* Animacion */
+
+@keyframes autoSlide{
+    0%{
+        transform: translate(0, 0);
+    }
+    30%{
+        transform: translate(0, 0);
+    }
+    40%{
+        transform: translate(-300px, 0);
+    }
+    70%{
+        transform: translate(-300px, 0);
+    }
+    80%{
+        transform: translate(-600px, 0);
+    }
+    100%{
+        transform: translate(-600px, 0);
+    }
 }
