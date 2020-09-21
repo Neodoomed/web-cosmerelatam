@@ -88,7 +88,8 @@
 
 @media all and (min-width: 768px){
     .home{
-        align-self: flex-start;
-        margin: auto 20px;
+        align-self: flex-end;
+        margin: 0 20px;
+        transform: translate(0px, -55vh);
     }
 }
