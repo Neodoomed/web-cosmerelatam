@@ -209,28 +209,28 @@
 	.NavbarItems ul li:nth-child(1){
 		width: 100px;
 	}
-	.set--Home, .NavbarItems ul li:nth-child(1):hover ~ .barLine{
+	.set--home, .NavbarItems ul li:nth-child(1):hover ~ .barLine{
 		width: 100px;
 		transform: translate(0);
 	}
 	.NavbarItems ul li:nth-child(2){
 		width: 110px;
 	}
-	.set--News, .NavbarItems ul li:nth-child(2):hover ~ .barLine{
+	.set--news, .NavbarItems ul li:nth-child(2):hover ~ .barLine{
 		width: 110px;
 		transform: translate(100px);
 	}
 	.NavbarItems ul li:nth-child(3){
 		width: 110px;
 	}
-	.set--Artist, .NavbarItems ul li:nth-child(3):hover ~ .barLine{
+	.set--artists, .NavbarItems ul li:nth-child(3):hover ~ .barLine{
 		width: 110px;
 		transform: translate(210px);
 	}
 	.NavbarItems ul li:nth-child(4){
 		width: 120px;
 	}
-	.set--Cosmere, .NavbarItems ul li:nth-child(4):hover ~ .barLine{
+	.set--cosmere, .NavbarItems ul li:nth-child(4):hover ~ .barLine{
 		width: 120px;	
 		transform: translate(320px);
 	}

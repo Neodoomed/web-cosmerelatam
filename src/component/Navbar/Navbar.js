@@ -1,12 +1,23 @@
 import React, {Component} from 'react';
 import {MenuItems} from "./MenuItems";
 import {Link} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import './Navbar.css';
 
 //<button className="btn-lg">Inciar seción</button>
 
-class Navbar extends Component{
-    render(){
+
+function setSpotlight(url){
+    var spot = 'barLine set--';
+    var newLoc = url.split("/web-cosmerelatam/");
+    spot += newLoc[1];
+    return(spot);
+}
+
+
+function Navbar(){
+    const location = useLocation();
+
         return(
             <nav className="NavbarItems">
                 <span className="nav_logo"></span>
@@ -14,6 +25,7 @@ class Navbar extends Component{
                 <label className="menuIcon" for="menuBtn">
                     <span className="bars"></span>
                 </label>
+                
                 <ul className="nav_link">
                     {MenuItems.map((item, index) => {
                         return(
@@ -24,11 +36,12 @@ class Navbar extends Component{
                             </li>
                         )
                     })}
-                    <li className="barLine set--News" id="lineNav"></li>
+                    <li className={setSpotlight(location.pathname)} id="lineNav"></li>
+                    
                 </ul>
             </nav>
-        )
-    }
+        );
+    
 }
 
 export default Navbar
