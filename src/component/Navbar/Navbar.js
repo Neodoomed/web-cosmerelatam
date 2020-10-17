@@ -9,7 +9,7 @@ import './Navbar.css';
 
 function setSpotlight(url){
     var spot = 'barLine set--';
-    var newLoc = url.split("/web-cosmerelatam/");
+    var newLoc = url.split("/");
     spot += newLoc[1];
     return(spot);
 }
