@@ -25,9 +25,9 @@ class App extends Component{
           <Navbar/>
             <Suspense fallback={<Loader />}>
               <Switch>
-                <Route exact path="/web-cosmerelatam/" component={Index} />
-                <Route exact path="/web-cosmerelatam/news" component={News} />
-                <Route exact path="/web-cosmerelatam/404" component={NonFound} />
+                <Route exact path="/" component={Index} />
+                <Route exact path="/news" component={News} />
+                <Route exact path="/404" component={NonFound} />
                 <Route component={NonFound} />
               </Switch>
               <Footer />

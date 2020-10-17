@@ -1,6 +1,6 @@
 {
-  "homepage": "https://neodoomed.github.io/web-cosmerelatam/",
-  "name": "cosmerelatam",
+  "homepage": "https://cosmere-latam.herokuapp.com",
+  "name": "cosmere-latam",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
