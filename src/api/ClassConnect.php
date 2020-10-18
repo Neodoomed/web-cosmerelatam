@@ -1,20 +1,21 @@
 <?php
 #Conneccion a la Bace de Datos
-class ClassConnect{
-    protected function loginDB(){
+    class ClassConnect{
+        protected function loginDB(){
 
-        $HostDB = 'https://databases.000webhost.com';
-        $NameDB = 'id14864553_cosmerelatam';
-        $UserDB = 'id14864553_hoid';
-        $PassDB = 'Co8zFK=C>cPYx({G';
+            $HostDB = 'localhost';
+            $NameDB = 'id14864553_cosmerelatam';
+            $UserDB = 'id14864553_hoid';
+            $PassDB = 'jDdF*kmb5~KiKXpR';
 
-        try{
-            $Con = new PDO('mysql:host='.$HostDB.';dbname='.$NameDB, $UserDB, $PassDB);
-            retur $Con;
-        }catch (PDOExceptio $Erro){
-            return $Erro->getMessage();
+            try{
+                $Con = new PDO("mysql:host=$HostDB;dbname=$NameDB", $UserDB, $PassDB);
+                $Con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                return $Con;
+            }catch (PDOExceptio $Erro){
+                return $Erro->getMessage();
+            }
         }
     }
-}
 
 ?>

@@ -3,6 +3,19 @@ import './news.css';
 
 
 class News extends Component{
+
+    state = {
+        section :''
+    }
+
+    getNewsList(categoty){
+        const urlApi = 'https://cosmere-latam.000webhostapp.com/app/index.php?f=newsListAll&s{this.state.section}';
+    }
+
+    onChangeValue(event) {
+        console.log(event.target.value);
+    }
+
     render(){
         return(
             <section className="news">
@@ -59,22 +72,23 @@ class News extends Component{
                         <label className="radioSlide" For="slider3"></label>
                     </nav>
                 </div>
-                <nav className="category">
-                    <ul>
-                        <il className="select">Recientes</il>
-                        <il>Noticias</il>
-                        <il>Eventos</il>
-                        <il>Anuncios</il>
-                    </ul>
+                <nav className="category" onChange={this.onChangeValue}>
+                    <input type="radio" name="category" id="category1" />
+                    <input type="radio" name="category" id="category2" />
+                    <input type="radio" name="category" id="category3" />
+                    <input type="radio" name="category" id="category4" />
+
+                    <label  For="category1">Recientes</label>
+                    <label  For="category2">Noticias</label>
+                    <label  For="category3">Eventos</label>
+                    <label  For="category4">Anuncios</label>
                 </nav>
                 <div className='newsList'>
                     <ul>
                         <il>
                             
                         </il>
-                        <il></il>
-                        <il></il>
-                        <il></il>
+
                         <il className="more">Mas</il>
                     </ul>
                 </div>
