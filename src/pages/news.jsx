@@ -1,19 +1,42 @@
 import React, {Component} from 'react';
 import './news.css';
+import New from './component/New';
+
 
 
 class News extends Component{
 
-    state = {
-        section :''
+    constructor(props) {
+        super(props);
+        this.state = {
+            section: 'all',
+            page: 5,
+            Result : [],
+            isLoading : true
+        };
+        //this.handleChange = this.handleChange.bind(this);
+        //this.getNewsList = this.getNewsList.bind(this);
     }
 
-    getNewsList(categoty){
-        const urlApi = 'https://cosmere-latam.000webhostapp.com/app/index.php?f=newsListAll&s{this.state.section}';
+    getNewsList = () =>{
+        const urlApi = `https://cosmere-latam.000webhostapp.com/app/index.php?f=newsListAll&sec=${this.state.section}&page=${this.state.page}`;
+        console.log(urlApi);
+        fetch(urlApi)
+            .then(response => response.json())
+            .then(data => this.setState({Result : data, isLoading: false}))
+            .catch(error => this.setState({ error, isLoading: false }));
     }
 
-    onChangeValue(event) {
+    handleChange = (event) =>{
+        event.preventDefault();
         console.log(event.target.value);
+        this.setState({
+            section: event.target.value,
+            page: 5,
+            Result : [],
+            isLoading : true
+        });
+        this.getNewsList();
     }
 
     render(){
@@ -72,11 +95,11 @@ class News extends Component{
                         <label className="radioSlide" For="slider3"></label>
                     </nav>
                 </div>
-                <nav className="category" onChange={this.onChangeValue}>
-                    <input type="radio" name="category" id="category1" />
-                    <input type="radio" name="category" id="category2" />
-                    <input type="radio" name="category" id="category3" />
-                    <input type="radio" name="category" id="category4" />
+                <nav className="category">
+                    <input type="radio" name="category" id="category1" value="all" onClick={this.handleChange} checked={this.state.section === "all"}/>
+                    <input type="radio" name="category" id="category2" value="news" onClick={this.handleChange} checked={this.state.section === "news"}/>
+                    <input type="radio" name="category" id="category3" value="event" onClick={this.handleChange} checked={this.state.section === "event"}/>
+                    <input type="radio" name="category" id="category4" value="adds" onClick={this.handleChange} checked={this.state.section === "dds"}/>
 
                     <label  For="category1">Recientes</label>
                     <label  For="category2">Noticias</label>
@@ -85,14 +108,19 @@ class News extends Component{
                 </nav>
                 <div className='newsList'>
                     <ul>
-                        <il>
-                            
-                        </il>
-
+                    {!this.state.isLoading ? (
+                        this.state.Result.map(result=>(
+                            <New
+                                key={result.ID}
+                                new={result}
+                            />
+                        ))
+                    ) : (
+                    this.getNewsList()
+                    )}
                         <il className="more">Mas</il>
                     </ul>
                 </div>
-                
             </section>
         )
     }

@@ -9,7 +9,7 @@
             $PassDB = 'jDdF*kmb5~KiKXpR';
 
             try{
-                $Con = new PDO("mysql:host=$HostDB;dbname=$NameDB", $UserDB, $PassDB);
+                $Con = new PDO("mysql:host=$HostDB;dbname=$NameDB", $UserDB, $PassDB, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
                 $Con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 return $Con;
             }catch (PDOExceptio $Erro){

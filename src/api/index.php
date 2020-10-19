@@ -1,13 +1,15 @@
 <?php 
     include("ClassNews.php");
-    $f='';
-    if (isset($_GET['f'])) $f = $_GET['f'];
-    switch ($f){
+    $fuc='';
+    if (isset($_GET['f'])) $fuc = $_GET['f'];
+    switch ($fuc){
         case 'newsListAll':
+            $section = (isset($_GET['sec'])) ? $_GET['sec'] : 'all';
+            $page = (isset($_GET['page'])) ? $_GET['page'] : '5';
             $News = new ClassNews();
-            $News->newsListAll();
+            $News->newsListAll($page, $section);
         break;
         default:
-            Echo "Function ".$f." don't found.";
+            Echo "Function ".$fuc." don't found.";
     }
 ?>
