@@ -20,7 +20,7 @@ class App extends Component{
 
   render(){
     return (
-      
+        <main>
           <Router> 
           <Navbar/>
             <Suspense fallback={<Loader />}>
@@ -33,6 +33,7 @@ class App extends Component{
               <Footer />
             </Suspense> 
           </Router>
+        </main>
     );
   }
 

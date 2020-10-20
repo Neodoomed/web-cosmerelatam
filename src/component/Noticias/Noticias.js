@@ -36,7 +36,7 @@ class Noticias extends Component{
                             </a></li>
                             <li className="tab_more">
                                 <a href="#" className="moreIcon">
-                                    <Link to="/web-cosmerelatam/news" >Más</Link>
+                                    <Link to="/news" >Más</Link>
                                 </a>
                             </li>
                         </ul>

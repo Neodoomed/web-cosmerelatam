@@ -3,7 +3,7 @@
     position: relative;
     min-width: 100%;
     min-height: 100vh;
-    background: url("./RhythmOfWar.png");
+    background: url("./../../imges/RhythmOfWar-coverart.jpg");
     background-size: cover;
     background-position: right;
     z-index: 1;

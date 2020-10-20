@@ -1,5 +1,6 @@
 {
   "name": "Cosmere Latam",
+  "short_name": "Cosmere Latam",
   "start_url": "https://cosmere-latam.com.ar/",
   "display": "standalone",
   "theme_color": "#000000",
