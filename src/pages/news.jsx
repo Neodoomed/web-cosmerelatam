@@ -36,7 +36,7 @@ class News extends Component{
             Result : [],
             isLoading : true
         });
-        this.getNewsList();
+        //this.getNewsList();
     }
 
     render(){
