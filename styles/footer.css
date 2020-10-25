@@ -1,0 +1,108 @@
+.Footer{
+    background-color: #202020;
+    position: relative;
+    min-width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 50px 0px;
+}
+
+.Footer div{
+    width: 320px;
+    margin: auto;
+}
+@media all and (min-width: 768px){
+    .Footer div{
+        width: 640px;
+        margin: auto;
+    }
+}
+@media all and (min-width: 1281px){
+    .Footer div{
+        width: 1200px;
+        margin: auto;
+    }
+}
+
+.line_1{
+    margin-top: 10px;
+    border: 1px solid #868686;
+}
+
+.copyright{
+    margin: 20px 10px;
+    color: #ffffff;
+}
+
+.social{
+    display: flex;
+	padding: 0%;
+	top: 0;
+	left: 0;
+    right: 0;
+    list-style: none;
+    padding: 0px;
+}
+
+.social li{
+
+    margin: 5px 10px;
+}
+
+.social a {
+    background: #999999;
+    color: #efefef;
+    border-radius: 20px;
+    text-decoration: none;
+    line-height: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+}
+
+.social li a div{
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 60%;
+    height: 60%;
+}
+
+.fb_icon{
+    background-image: url('/images/icons/facebook.png');
+}
+.tw_icon{
+    background-image: url('/images/icons/twitter.png');
+}
+.ig_icon{
+    background-image: url('/images/icons/instagram.png');
+}
+.dc_icon{
+    background-image: url('/images/icons/discordia.png');
+}
+.yt_icon{
+    background-image: url('/images/icons/youtube.png');
+}
+
+
+.social a.tw:hover {
+    background: #00acee;
+} 
+.social a.fb:hover {
+    background: #3b5998;
+}
+.social a.yt:hover {
+    background: #dd4b39;
+}
+.social a.dc:hover {
+    background: #3b5998;
+}
+.social a.ig:hover {
+    background: #bb8d0e;
+}
