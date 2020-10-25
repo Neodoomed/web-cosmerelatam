@@ -2,6 +2,9 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/shadesmar": "pages/shadesmar.js",
-  "/": "pages/index.js"
+  "/": "pages/index.html",
+  "/news": "pages/news.js",
+  "/news/[id]": "pages/news/[id].html",
+  "/shadesmar": "pages/shadesmar.html",
+  "/404": "pages/404.html"
 }
