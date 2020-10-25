@@ -39,7 +39,7 @@ export default function Index(props){
                     </Link>
                 </li>
                 <li>
-                    <Link href="potcast" >
+                    <Link href="/potcast" >
                         Podcasts
                     </Link>
                 </li>
