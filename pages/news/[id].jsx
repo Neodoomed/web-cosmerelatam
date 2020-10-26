@@ -3,7 +3,7 @@ import {useRouter} from 'next/router'
 import MainConteiner from './../../components/main';
 import './../../styles/news.css';
 
-export default function ReedNews(){
+export default function ReedNews(props){
 
     const router = useRouter();
     const {id}= router.query;
@@ -16,3 +16,4 @@ export default function ReedNews(){
         </MainConteiner>
     )
 }
+

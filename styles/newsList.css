@@ -83,8 +83,8 @@ h5{
 }
 .newsList .more{
     min-width: 300px;
+    max-height: 30px;
     width: 90%;
-    height: 50px;
     background-color: rgba(57, 59, 64, 0.8);
     color: #ffffff;
     font-size: 18px;
@@ -100,6 +100,7 @@ h5{
     justify-content: center;
 }
 .newsList .more:hover{
+    height: 30px;
     color: rgb(197, 194, 19);
     background-color: #393b40;
 }
@@ -177,5 +178,10 @@ h5{
         height: 40px;
         font-weight: 700;
         font-size: 24px;
+    }
+    .newsList .more{
+        min-width: 300px;
+        min-height: 50px;
+        max-height: 50px;
     }
 }
