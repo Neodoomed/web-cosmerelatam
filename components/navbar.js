@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {useRouter} from 'next/router';
 
 import './../styles/navbar.css';
+//import {navbarStyles} from './../styles/styles';
 
 function setSpotlight(url){
     var spot = 'barLine set--';
@@ -13,6 +14,7 @@ function setSpotlight(url){
 export default function Index(props){
     const router = useRouter()
     return(
+        <>
         <nav className="NavbarItems">
 
             <span className="nav_logo"></span>
@@ -46,5 +48,6 @@ export default function Index(props){
                 <li className={setSpotlight(router.pathname)} id="lineNav"></li>
             </ul>
         </nav>
+        </>
     );
 }

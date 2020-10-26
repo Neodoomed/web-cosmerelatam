@@ -2,19 +2,23 @@
     margin: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     padding: 70px 0px;
+    justify-self: start;
 }
 
 .sliderMain{
-    max-width: 300px;
+    width: 350px;
     overflow: hidden;
+    display: flex;
+    justify-self: start;
 }
 
 .topNews ul{
     position: relative;
     display: flex;
-	align-items: center;
-    /*flex-direction: row;*/
+    align-items: center;
     padding: 0px;
     margin: 0;
 
@@ -28,14 +32,13 @@
 }
 
 .topNews li{
-    min-width: 290px;
-    width: 290px;
-    height: 420px;
+    min-width: 320px;
+    max-height: 250px;
     background: rgba(30, 30, 30, 0.7);
     backdrop-filter: blur(3px);
     border-radius: 5px;
     padding: 15px;
-    margin: 10px 5px;
+    margin: 10px 15px;
     display: flex;
     flex-direction: column;
     transition: all 0.2s ease-out;
@@ -46,9 +49,10 @@
 
 .topNews li .newsImg{
     background: #333333;
-    height: 180px;
-    min-height: 180px;
+    min-width: 283px;
+    min-height: 123px;
     margin: 0;
+    align-self: center;
 }
 .topNews li .newsTitle h1{
     color: #ffffff;
@@ -59,6 +63,7 @@
 }
 .topNews li .newsText{
     min-height: 130px;
+    display: none;
 }
 .topNews li .newsText p{
     color: #ffffff;
@@ -83,7 +88,6 @@
 }
 
 .topNews .sliderBar{
-    align-self: flex-end;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,7 +95,7 @@
 .topNews input{
     display: none;
 }
-.topNews .sliderBar .radioSlide{
+.topNews .sliderBar label{
     margin: 5px 15px;
     display: block;
     width: 30px;
@@ -105,23 +109,23 @@ input[id="slider1"]:checked ~ .sliderMain .slider{
     animation: none;
     transform: translate(0, 0);
 }
-input[id="slider1"]:checked ~ .sliderBar .radioSlide[for="slider1"]{
+input[id="slider1"]:checked ~ .sliderBar label[for="slider1"]{
     background: rgba(197, 194, 19, .6);
 }
 
 input[id="slider2"]:checked ~ .sliderMain .slider{
     animation: none;
-    transform: translate(-300px, 0px);
+    transform: translate(-350px, 0px);
 }
-input[id="slider2"]:checked ~ .sliderBar .radioSlide[for="slider2"]{
+input[id="slider2"]:checked ~ .sliderBar label[for="slider2"]{
     background: rgba(197, 194, 19, .6);
 }
 
 input[id="slider3"]:checked ~ .sliderMain .slider{
     animation: none;
-    transform: translate(-600px, 0px);
+    transform: translate(-700px, 0px);
 }
-input[id="slider3"]:checked ~ .sliderBar .radioSlide[for="slider3"]{
+input[id="slider3"]:checked ~ .sliderBar label[for="slider3"]{
     background: rgba(197, 194, 19, .6);
 }
 
@@ -135,11 +139,23 @@ input[id="slider3"]:checked ~ .sliderBar .radioSlide[for="slider3"]{
         transform: translate(0, 0);
         animation: none;
     }
-    .topNews il{
+    .topNews li .newsImg{
+        background: #333333;
+        width: 380px;
+        height: 190px;
+    }
+    .topNews li{
+        width: 420px;
+        height: 450px;
+        min-height: 450px;
         margin: 5px;
     }
+    .topNews li .newsText{
+        min-height: 130px;
+        display: inline-block;
+    }
     .sliderMain{
-        max-width: 100%;
+        width: 100%;
     }
     .topNews .sliderBar{
         display: none;
@@ -156,15 +172,15 @@ input[id="slider3"]:checked ~ .sliderBar .radioSlide[for="slider3"]{
         transform: translate(0, 0);
     }
     40%{
-        transform: translate(-300px, 0);
+        transform: translate(-350px, 0);
     }
     70%{
-        transform: translate(-300px, 0);
+        transform: translate(-350px, 0);
     }
     80%{
-        transform: translate(-600px, 0);
+        transform: translate(-700px, 0);
     }
     100%{
-        transform: translate(-600px, 0);
+        transform: translate(-700px, 0);
     }
 }

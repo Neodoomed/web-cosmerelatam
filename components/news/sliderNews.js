@@ -50,9 +50,9 @@ export default function SliderNews(){
                 </ul>
             </div>
             <nav className="sliderBar">
-                <label className="radioSlide" htmlFor="slider1"></label>
-                <label className="radioSlide" htmlFor="slider2"></label>
-                <label className="radioSlide" htmlFor="slider3"></label>
+                <label htmlFor="slider1"></label>
+                <label htmlFor="slider2"></label>
+                <label htmlFor="slider3"></label>
             </nav>
         </div>
     );

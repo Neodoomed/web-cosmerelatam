@@ -9,8 +9,7 @@ export default function newList(props){
             <ul>
                 {props.results.map(result=>(
                         <li className='new' key={result.ID}>
-                            <div className='img'>
-                            </div>
+                            <img src='' className='img'/>
                             <div className='content'>
                                 <div className='title'>
                                 <h5>{result.Title}</h5>

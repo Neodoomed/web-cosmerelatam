@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 export const navbarStyles = css`
-.NavbarItems {
+nav {
 	background: linear-gradient(0deg, rgb(0, 0, 0, 1.0) 0% , rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0.5) 100%);
 	backdrop-filter: blur(3px);
 	padding: 0px;
@@ -14,9 +14,9 @@ export const navbarStyles = css`
 	box-shadow: 0px 0px 10px #000000;
 	display: flex;
 	align-items: center;
-	align-content: space-between;
+    align-content: space-between;
+    color: #ffffff;
 }
-
 .nav_logo{
 	display: block;
 	width: 70px;
@@ -29,8 +29,7 @@ export const navbarStyles = css`
 	margin-left: 20px;
 	margin-right: 50px;
 }
-
-.NavbarItems ul{
+nav ul{
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -38,14 +37,14 @@ export const navbarStyles = css`
 	float: right;
 	text-align: left;
 }
-.NavbarItems li{
+nav li{
 	display: inline;
 	margin: 0;
 	padding: 0;
 	align-self: stretch;
-	z-index: 5;
+    z-index: 5;
 }
-.NavbarItems li a{
+nav li a{
 	color: #ffffff;
 	right: 5%;
     text-decoration: none;
@@ -56,7 +55,7 @@ export const navbarStyles = css`
 	border-left: 5px solid transparent;
 }
 
-.NavbarItems li a:hover{
+nav li a:hover{
 	color: rgb(197, 194, 19);
 	text-decoration: none;
 	text-shadow:0px 0px 10px #000000;
@@ -64,7 +63,6 @@ export const navbarStyles = css`
 	list-style: none;
 	border-left: 5px solid #0088a9;
 }
-
 .btn-lg{
 	border: 1px solid #0088a9;
 	border-radius: 5px;
@@ -94,7 +92,7 @@ export const navbarStyles = css`
 	outline: none;
 }
 
-.NavbarItems .nav_link{
+nav .nav_link{
 	text-align: center;
 	clear: both;
 	width: 0;
@@ -107,11 +105,9 @@ export const navbarStyles = css`
 	height: 100vh;
 	z-index: 5;
 }
-
 .NavbarItems .menuBtn{
 	display: none;
 }
-
 .NavbarItems .menuIcon{
 	border: 1px solid #0088a9;
 	border-radius: 5px;
@@ -121,11 +117,9 @@ export const navbarStyles = css`
 	margin-left: auto;
 	margin-right: 5px;
 }
-
 .NavbarItems .menuIcon:hover{
 	background-color: #0088a9;
 }
-
 .menuIcon .bars{
 	background: #999999;
 	display: block;
@@ -152,7 +146,8 @@ export const navbarStyles = css`
 }
 
 .menuBtn:checked ~ .nav_link{
-	width: 300px;
+    width: 300px;
+    height: 100%;
 }
 .menuBtn:checked ~ .menuIcon .bars{
 	background: none;
@@ -165,7 +160,6 @@ export const navbarStyles = css`
 	transform: rotate(45deg);
 	top: 0;
 }
-
 .NavbarItems .barLine{
 	min-width: 100px;
 	height: 0px;
@@ -179,58 +173,56 @@ export const navbarStyles = css`
 	display: none;
 }
 
-
 @media all and (min-width: 768px){
-	.NavbarItems .nav_link {
+	nav ul{
 		clear: none;
 		width: auto;
-		height: auto;
+		height: 60px;
 		position: relative;
 		background: none;
 		padding: 0;
 		margin: 0;
 		display: flex;
-		align-content: center;
+        align-content: center;
 		border: none;
 	}
-	.NavbarItems .menuIcon{
+	nav .menuIcon{
 		display: none;
 	}
-	.NavbarItems li a{
+	nav ul li a{
 		border: none;
 	}
-	.NavbarItems li a:hover{
+	nav ul li a:hover{
 		border: none;
 	}
-
-	.NavbarItems .barLine{
+	nav .barLine{
 		display: inline-block;
 	}
-	.NavbarItems ul li:nth-child(1){
+	nav ul li:nth-child(1){
 		width: 100px;
 	}
-	.set--home, .NavbarItems ul li:nth-child(1):hover ~ .barLine{
+	.set--home, nav ul li:nth-child(1):hover ~ .barLine{
 		width: 100px;
 		transform: translate(0);
 	}
-	.NavbarItems ul li:nth-child(2){
+	nav ul li:nth-child(2){
 		width: 100px;
 	}
-	.set--news, .NavbarItems ul li:nth-child(2):hover ~ .barLine{
+	.set--news, nav ul li:nth-child(2):hover ~ .barLine{
 		width: 100px;
 		transform: translate(100px);
 	}
-	.NavbarItems ul li:nth-child(3){
+	nav ul li:nth-child(3){
 		width: 100px;
 	}
-	.set--artists, .NavbarItems ul li:nth-child(3):hover ~ .barLine{
+	.set--artists, nav ul li:nth-child(3):hover ~ .barLine{
 		width: 100px;
 		transform: translate(200px);
 	}
-	.NavbarItems ul li:nth-child(4){
+	nav ul li:nth-child(4){
 		width: 100px;
 	}
-	.set--potcast, .NavbarItems ul li:nth-child(4):hover ~ .barLine{
+	.set--potcast, nav ul li:nth-child(4):hover ~ .barLine{
 		width: 100px;	
 		transform: translate(300px);
 	}

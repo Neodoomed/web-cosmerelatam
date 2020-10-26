@@ -1,6 +1,6 @@
 .news{
     position: relative;
-    min-width: 100%;
+    min-width: 100wv;
     background: url(/images/newsBackground.jpg) no-repeat;
     background-size: cover;
     background-position: left top;

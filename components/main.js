@@ -2,11 +2,11 @@ import Head from 'next/head';
 import Navbar from './navbar';
 import Footer from './footer';
 
-import {globalStyles} from './../styles/globals'
+//import {globalStyles} from './../styles/globals'
+import './../styles/globals.css';
 
 export default function MainConteiner(props){
     return(
-        <>
         <main>
             <Head>
                 <meta charSet="UTF-8" />
@@ -30,8 +30,6 @@ export default function MainConteiner(props){
             {props.children}
             <Footer></Footer>
         </main>
-        
-        <style jsx global>{globalStyles}</style>
-        </>
+
     );
 }

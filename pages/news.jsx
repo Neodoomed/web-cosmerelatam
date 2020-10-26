@@ -7,6 +7,9 @@ import NewsList from './../components/news/newsList';
 import './../styles/news.css';
 
 export default function News(props){
+    const [section, setSection] = useState('all');
+    const [page, setPage] = useState(5);
+
     return(
         <MainConteiner>
             <section className="news">
