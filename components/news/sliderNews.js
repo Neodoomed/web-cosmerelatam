@@ -1,4 +1,5 @@
-import './../../styles/sideNews.css';
+//import './../../styles/sideNews.css';
+import { sliderStyle } from '../../styles/newStyles'
 
 export default function SliderNews(){
     return(
@@ -54,6 +55,8 @@ export default function SliderNews(){
                 <label htmlFor="slider2"></label>
                 <label htmlFor="slider3"></label>
             </nav>
+            <style jsx>{ sliderStyle }</style>
         </div>
+        
     );
 }

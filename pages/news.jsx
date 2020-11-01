@@ -1,39 +1,44 @@
-import { Component } from 'react';
-import { useState } from 'react';
-
+import { useState, useEffect} from 'react';
+import {fetchNewsList} from './../firebase/client'
 import MainConteiner from './../components/main';
 import SliderNews from './../components/news/sliderNews';
 import NewsList from './../components/news/newsList';
-import './../styles/news.css';
+//import './../styles/news.css';
+import { newSecction, newStyle } from '../styles/newStyles'
 
 
-export default function News(props){
 
-    const [results, setResults] = useState(props.Results);
+export default function News(){
+
+    const [newsSlider, setSlider] = useState([]);
+    const [newsList, setNews] = useState([]);
+
     const [section, setSection] = useState('all');
     const [page, setPage] = useState(5);
+    const [reload, setReload] = useState(false);
 
-    
-    const fetchData = async (sec) =>{
-        const urlApi = `https://cosmere-latam.000webhostapp.com/app/index.php?f=newsListAll&sec=${sec}&page=5`;
-        console.log(urlApi);
-        const res = await fetch(urlApi);
-        const json = await res.json();
-        console.log(json);
-        setResults(json);
-    }
+    useEffect( async() =>{
+        setReload(false)
+        await fetchNewsList(section, page)
+            .then(setNews)
+        setReload(true)
+    }, [section, page]);
 
     const handleChange = (event) =>{
         event.preventDefault();
         setSection(event.target.value);
-        fetchData(event.target.value);
+        setPage(5)
+        //fetchData(event.target.value);
+    }
+
+    const hadleMore = () =>{
+        setPage(page + 5);
     }
 
     return(
         <MainConteiner>
             <section className="news">
                 <SliderNews></SliderNews>
-                
                 <nav className="category">
                     <form>
                         <input type="radio" name="category" id="category1" 
@@ -62,21 +67,15 @@ export default function News(props){
                         <label  htmlFor="category4">Anuncios</label> 
                     </form>
                 </nav>
-                
                 <NewsList
-                    results = {results}
+                    results = { newsList }
+                    more = { hadleMore }
+                    isLoad = { reload }
+                    thisStyle = { newStyle }
                 />
-                
             </section>
+            <style jsx>{ newSecction }</style>
+            <style jsx>{ newStyle }</style>
         </MainConteiner>
     )
-}
-export async function getStaticProps(ctx) {
-    const urlApi = `https://cosmere-latam.000webhostapp.com/app/index.php?f=newsListAll&sec=all&page=5`;
-    const res = await fetch(urlApi);
-    const json = await res.json();
-    return {props: { 
-                Results: json 
-            }
-        }
 }

@@ -1,4 +1,5 @@
-import './../../styles/bannerHome.css';
+//import './../../styles/bannerHome.css';
+import {homeStyle} from '../../styles/homeStyles'
 
 export default function BannerHome(){
     return(
@@ -13,6 +14,8 @@ export default function BannerHome(){
                 <p className="join">Acepta tu investidura y comienza este viaje...</p>
                 <button className="btn-join">Unete</button>
             </div>
+            <style jsx>{ homeStyle }</style>
         </section>
+        
     )
 }

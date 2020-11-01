@@ -28,15 +28,8 @@ export const globalStyles = css.global`
 
 export const loginStyles = css`
     section{
-        position: relative;
-        min-width: 100%;
-        min-height: 100vh;
         background: url("/images/shadesmar.jpg");
         background-size: cover;
-        background-position: left;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
     .main{
         position: relative;

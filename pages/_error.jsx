@@ -1,17 +1,20 @@
-import MainConteiner from './../components/main';
-import './../styles/404.css';
+import { errorStyles } from '../styles/globalStyles'
+//import Navbar from './../components/navbar'
+import MainConteiner from './../components/main'
 
 export default function Index(){
     return(
-        <MainConteiner>
+        <>
+            <MainConteiner>
             <section className="non">
-                
                 <div>
                 <h2>404</h2>
                 <p>Seccion no encontrada.</p>
                 <p>No intentes saltar entre mundos si no conoces las rutas.</p>  
                 </div>
             </section>
-        </MainConteiner>
+            <style jsx>{ errorStyles }</style>
+            </MainConteiner>
+        </>
     );
 }

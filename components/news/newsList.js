@@ -1,41 +1,42 @@
-
 import Link from 'next/link';
-import Router from 'next/router';
-import './../../styles/newsList.css';
+import Router from 'next/router'
+//import './../../styles/newsList.css';
+import { newStyle } from '../../styles/newStyles'
 
 
 export default function newList(props){
-    
-    const handleClick = (event) =>{
-        event.preventDefault();
-        Router.push('/news/[id]', `/news/${event.target.key}`)
-    }
-
+    //onClick={() => Router.push('/news/[id]', `/news/${result.id}`)}
+    //<Link href='news/[id]' as={`/news/${result.id}`} key={result.id}>
+    var Label = ''
+    {props.isLoad ? Label = 'Mas' :  Label = 'Cargando...'}
     return(
         <>
         <div className='newsList'>
             <ul>
                 {props.results.map(result=>(
-                        <li className='new' key={result.ID} onClick={() => Router.push('/news/[id]', `/news/${result.ID}`)}>
-                                <img src='' className='img'/>
+                    
+                        <li className='new' key={result.id} onClick={() => Router.push('/news/[id]', `/news/${result.id}`)}>
+                                <img src={result.banner} className='img'/>
                                 <div className='content'>
                                     <div className='title'>
-                                    <h5>{result.Title}</h5>
+                                    <h5>{result.title}</h5>
                                     </div>
                                     <div className='text'>
-                                        <p>{result.News}</p>
+                                        <p>{result.subTitle}</p>
                                     </div>
                                     <div className='data'>
-                                        <div className='date'>{result.Date}</div>
-                                        <div className='section'>{result.Section}</div>
+                                        <div className='date'>{result.date}</div>
+                                        <div className='section'>{result.section}</div>
                                     </div>
                                 </div>
                         </li>
+                        
                     ))
                 }
-                <li className="more">Mas</li>
+            <li className="more" onClick={props.more}> { Label } </li>
             </ul>
         </div>
+        <style jsx>{ newStyle }</style>
         </>
     )
 }

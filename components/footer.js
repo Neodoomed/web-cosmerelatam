@@ -1,9 +1,9 @@
-import {SocialItems} from "./Socials";
-import './../styles/footer.css';
-//
+import { SocialItems } from "./Socials";
+//import './../styles/footer.css';
+import { footerStyle } from '../styles/mainStyles'
 
 
-export default function Index(props){
+export default function Footer(props){
     return(
         <section className="Footer">
                 <div>
@@ -21,6 +21,7 @@ export default function Index(props){
                     <hr className="line_1"></hr>
                     <p className="copyright">©2020 diseñado y programado por Neodoom Xardax.</p>
                 </div>
+                <style jsx>{ footerStyle }</style>
         </section>
     );
 }
