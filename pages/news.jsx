@@ -3,14 +3,15 @@ import {fetchNewsList} from './../firebase/client'
 import MainConteiner from './../components/main';
 import SliderNews from './../components/news/sliderNews';
 import NewsList from './../components/news/newsList';
-//import './../styles/news.css';
+import GoTop from '../components/goTop';
+
 import { newSecction, newStyle } from '../styles/newStyles'
 
 
 
-export default function News(){
+export default function News(props){
 
-    const [newsSlider, setSlider] = useState([]);
+    //const [newsSlider, setSlider] = useState([]);
     const [newsList, setNews] = useState([]);
 
     const [section, setSection] = useState('all');
@@ -37,8 +38,11 @@ export default function News(){
 
     return(
         <MainConteiner>
+            <GoTop/>
             <section className="news">
-                <SliderNews></SliderNews>
+                <SliderNews
+                    results = { props.slider }
+                />
                 <nav className="category">
                     <form>
                         <input type="radio" name="category" id="category1" 
@@ -78,4 +82,8 @@ export default function News(){
             <style jsx>{ newStyle }</style>
         </MainConteiner>
     )
+}
+export async function getServerSideProps(ctx){
+    const slider = await fetchNewsList('all', 3).then(snapshot => {return snapshot})
+    return { props: { slider : slider } }    
 }

@@ -11,13 +11,14 @@ export const newSecction = css`
         background-size: cover;
         background-position: left top;
         background-position: 20% top;
+        background-attachment: fixed;
         flex-direction: column;
     }
 
     @media all and (min-width: 768px){
     .new{
         padding-top: 66px;
-        padding-bottom: 210px;
+        
     }
 }
     
@@ -92,91 +93,83 @@ h5{
     padding: 0;
     margin: 0;
 }
-.newsList li{
+.new{
     width: 100%;
-    height: 100px;
+    min-height: 100px;
+    position: relative;
     display: flex;
     flex-direction: row;
-    align-items: center;
     background: rgb(230, 230, 230);
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 5px 10px;
     margin: 5px 0px;
     transition: all .2s ease-out;
 }
-.newsList li:hover{
+.new:hover{
     background: rgb(255, 255, 255);
     box-shadow: 0 0 0 4px rgb(197, 194, 19);
 }
-.newsList .more{
-    min-width: 300px;
-    max-height: 30px;
-    width: 90%;
-    background-color: rgba(57, 59, 64, 0.8);
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 4px;
-    text-align: center;
-    margin: 0px;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: all 0.2s 0s ease-out;
+.new a{
+    width: 100%;
+    height: 100%;
     display: flex;
-	align-items: center;
-    justify-content: center;
-    user-select: none;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    overflow: hidden;
 }
-.newsList .more:hover{
-    height: 30px;
-    color: rgb(197, 194, 19);
-    background-color: #393b40;
+
+.more{
+    width: 100%;
+    min-width: 100%;
+    height: 50px;
+    margin: 0px;
+    margin-top: 20px;
 }
+
 .new .img {
     min-width: 80px;
     height: 50px;
     background-color: rgba(30, 30, 30, 0.7);
-    align-self: start;
+    margin-right: 20px;
+    align-self: center;
 }
 .new .content{
-    width: 100%;
-    height: 100%;
+    height: 80px;
     display: flex;
     flex-direction: column;
     align-items: top;
-    margin: 5px;
-    margin-left: 20px;
+    margin: 0px;
+
 }
-.new .content .title{
-    height: 30px;
-    color: rgb(0, 0, 0);
-    font-weight: 500;
-    font-size: 19px;
-    margin-top: 0px;
-    display: block;
-    overflow: hidden;
-}
-.new .content .text{
-    height: auto;
-    margin-top: 15px;
-    color: rgba(80, 80, 80, 1);
-    font-weight: 600;
-    display: none;
-}
-.new .content .data{
+
+.new .data{
+    position: absolute;
     display: flex;
-    justify-content: right;
-    margin-left: 5px;
-    margin-top: auto;
+    justify-content: flex-end;
+    width: 300px;
+    bottom: 16px;
+    right: 16px;
     color: rgba(80, 80, 80, 1);
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: 400;
+    font-size: 9px;
 }
-.new .content .data{
-    margin-left: auto;
+.new .section{
+    margin-left: 52px;
+    text-align: right;
 }
-.new .content .section{
-    margin-left: 25px;
+
+.new h3{
+    color: #000000;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0px;
+}
+.new p{
+    margin-top: 11px;
+    font-size: 16px;
+    color: #7d7d7d;
+    display: none;
 }
 
 @media all and (min-width: 768px){
@@ -184,42 +177,46 @@ h5{
         flex-direction: row;
         padding: 50px 0px;
     }
-    .new .content .text{
-        display: block;
-    }
     .newsList ul{
         flex-direction: column;
     }
-    .newsList li{
+    .new{
         min-width: 300px;
         width: 1280px;
         min-height: 170px;
-        padding: 20px;
         margin: 10px 0px;
+        padding: 15px 20px;
     }
-    .newsList .more{
-        min-width: 300px;
+   .more{
         width: 1280px;
+        height: 80px;
     }
-
     .new .img {
         width: 265px;
         height: 140px;
         background-color: rgba(30, 30, 30, 0.7);
+        margin-right: 20px;
+        padding: 0px;
     }
     .new .content{
-        margin: 5px;
-        margin-left: 20px;
+        width: calc(100% - 285px);
+        margin: 0;
     }
-    .new .content .title{
-        height: 40px;
-        font-weight: 700;
-        font-size: 24px;
+    .new h3{
+        color: #000000;
+        font-weight: 500;
+        font-size: 19px;
+        margin: 0px;
     }
-    .newsList .more{
-        min-width: 300px;
-        min-height: 50px;
-        max-height: 50px;
+    .new p{
+        margin-top: 11px;
+        font-size: 16px;
+        color: #7d7d7d;
+        display: block;
+    }
+    .new .data{
+        font-weight: 600;
+        font-size: 12px;
     }
 }
 `
@@ -259,8 +256,9 @@ export const sliderStyle = css`
 }
 
 .topNews li{
-    min-width: 320px;
-    max-height: 250px;
+    position: relative;
+    width: 320px;
+    height: 250px;
     background: rgba(30, 30, 30, 0.7);
     backdrop-filter: blur(3px);
     border-radius: 5px;
@@ -276,8 +274,8 @@ export const sliderStyle = css`
 
 .topNews li .newsImg{
     background: #333333;
-    min-width: 283px;
-    min-height: 123px;
+    width: 283px;
+    height: 123px;
     margin: 0;
     align-self: center;
 }
@@ -299,14 +297,18 @@ export const sliderStyle = css`
     text-shadow: 0px 0px 3px #000000;
 }
 .topNews li .newsOrigin{
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    width: 283px;
     margin-top: auto;
     display: flex;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 11px;
     text-shadow: 0px 0px 3px #000000;
 }
 .topNews li .newsOrigin .date{
-    margin-left: 0;
+    
     color: rgb(197, 194, 194);
 }
 .topNews li .newsOrigin .origin{
@@ -420,13 +422,14 @@ div{
 }
 
 .article{
-    background-color: #ffffff99;
+    background-color: #ffffffaa;
     backdrop-filter: blur(20px);
     margin: 0px 0px;
     padding: 0px 20px;
     width: 100%;
     min-height: 301px;
     border-top: solid 3px rgb(197, 194, 19);
+    border-radius: 5px;
 }
 .back{
     background: none;
@@ -455,13 +458,38 @@ p {
 
 @media all and (min-width: 768px){
     .article{
-        width: 100%;
-        min-height: 601px;
+        width: 900px;
         border-top: solid 5px rgb(197, 194, 19);
+        margin: auto;
+        margin-top: 10px;
+        background-color: #ffffff99;
+        border-top: 0;
+        box-shadow: 0px 0px 5px #00000099;
+    }
+    .back{
+        width: 100vw;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        margin: 0px;
+        margin-top: 40px;
+        padding: 0px;
+        box-shadow: 0px 0px 10px #000000;
+        border-bottom: solid 3px rgb(197, 194, 19);
+    }
+    .back div{
+        width: 900px;
+        margin: 20px auto;
     }
     .body{
-        width: 900px;
-        min-height: 390px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        background-color: #ffffff99;
+        backdrop-filter: blur(20px);
+        padding-bottom: 210px;
     }
 }
 

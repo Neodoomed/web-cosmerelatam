@@ -39,6 +39,58 @@ section {
     margin: 0;
 }
 
+.btn-withe{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgb(230, 230, 230);
+    border-radius: 5px;
+    padding: 10px 10px;
+    transition: all .2s ease-out;
+    user-select: none;
+}
+.btn-withe:hover{
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 0 4px rgb(197, 194, 19);
+}
+
+.btn-withe{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgba(230, 230, 230, .8);
+    color: #000000;
+    backdrop-filter: blur(3px);
+    border-radius: 5px;
+    padding: 10px;
+    padding: 10px 10px;
+    transition: all .2s ease-out;
+    user-select: none;
+}
+.btn-withe:hover{
+    background: rgba(255, 255, 255, .8);
+    box-shadow: 0 0 0 4px rgb(197, 194, 19);
+}
+
+.btn-black{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #393b40cc;
+    color: #ffffff;
+    backdrop-filter: blur(3px);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 10px;
+    transition: all .2s ease-out;
+}
+.btn-black:hover{
+  background-color: #393b40;
+  box-shadow: 0 0 0 4px rgb(197, 194, 19);
+  color: rgb(197, 194, 19);
+}
 `
 export const errorStyles = css`
 .non{
@@ -61,4 +113,8 @@ export const errorStyles = css`
 .non p{
   font-size: 24px;
 }
+`
+
+export const icons = css`
+
 `

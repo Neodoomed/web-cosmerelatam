@@ -31,10 +31,13 @@ export const fetchNewsList = (section, page) =>{
                     const { date } = data
                     const intl = new Intl.DateTimeFormat('es-ES')
                     const normalizedDate =new Date(date.seconds * 1000).toString()
+                    
+                    const splitDate = normalizedDate.split("(")
+
                     return {
                         id, 
                         ... data,
-                        date : normalizedDate
+                        date : splitDate[0]
                     }
                 })
             })
@@ -51,11 +54,14 @@ export const fetchNewsList = (section, page) =>{
                 const id = doc.id
                 const { date } = data
                 const intl = new Intl.DateTimeFormat('es-ES')
-                const normalizedDate =new Date(date.seconds * 1000).toString()
+                const normalizedDate = new Date(date.seconds * 1000).toString()
+                
+                const splitDate = normalizedDate.split("(")
+
                 return {
                     id, 
                     ... data,
-                    date : normalizedDate
+                    date : splitDate[0]
                 }
             })
         })

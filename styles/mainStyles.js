@@ -49,7 +49,7 @@ export const navbarStyle = css`
     padding: 18px 20px;
 	font-size: 18px;
 }
-.NavbarItems li a{
+.NavbarItems li{
 	color: #ffffff;
 	right: 5%;
     text-decoration: none;
@@ -60,7 +60,7 @@ export const navbarStyle = css`
 	border-left: 5px solid transparent;
 }
 
-.NavbarItems li a:hover{
+.NavbarItems li:hover{
 	color: rgb(197, 194, 19);
 	text-decoration: none;
 	text-shadow:0px 0px 10px #000000;
@@ -200,45 +200,12 @@ export const navbarStyle = css`
 	.NavbarItems .menuIcon{
 		display: none;
 	}
-	.NavbarItems li a{
+	.NavbarItems li{
         border: none;
         
 	}
 	.NavbarItems li:hover{
 		border: none;
-	}
-
-	.NavbarItems .barLine{
-        display: inline-block;
-        box-shadow: none;
-	}
-	.NavbarItems ul li:nth-child(1){
-		width: 100px;
-	}
-	.set--home, .NavbarItems ul li:nth-child(1):hover ~ .barLine{
-		width: 100px;
-		transform: translate(0);
-	}
-	.NavbarItems ul li:nth-child(2){
-		width: 100px;
-	}
-	.set--news, .NavbarItems ul li:nth-child(2):hover ~ .barLine{
-		width: 100px;
-		transform: translate(100px);
-	}
-	.NavbarItems ul li:nth-child(3){
-		width: 100px;
-	}
-	.set--artists, .NavbarItems ul li:nth-child(3):hover ~ .barLine{
-		width: 100px;
-		transform: translate(200px);
-	}
-	.NavbarItems ul li:nth-child(4){
-		width: 100px;
-	}
-	.set--potcast, .NavbarItems ul li:nth-child(4):hover ~ .barLine{
-		width: 100px;	
-		transform: translate(300px);
 	}
 }
 `
