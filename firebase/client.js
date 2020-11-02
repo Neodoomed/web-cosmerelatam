@@ -16,6 +16,11 @@ export default !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : 
 
 const dbCon = firebase.firestore();
 
+//Seccion de Login
+
+
+
+//fetch de Noticias
 export const fetchNewsList = (section, page) =>{
     var logic = ''
     if (section=='all') {

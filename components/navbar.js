@@ -19,38 +19,38 @@ export default function Navbar(props){
         <nav className="NavbarItems">
 
             <span className="nav_logo"></span>
-
+            
             <input type="checkbox" className="menuBtn" id="menuBtn"/>
             <label className="menuIcon" htmlFor="menuBtn">
                 <span className="bars"></span>
             </label>
 
             <ul className="nav_link">
-               <Link href="/" ><li>
-                        Home
-                </li></Link>
-                <Link href="/news" ><li>
-                        Noticias  
-                </li></Link>
-                <Link href="/artists" ><li>
-                        Artistas  
-                </li></Link>
-                <Link href="/potcast" ><li>
-                    Podcasts
-                </li></Link>
-                <Link href="/cosmere" ><li>
-                    Cosmere
-                </li></Link>
+                <li className="link"><Link href="/" >
+                    <a>Home</a>
+                </Link></li>
+                <li className="link"><Link href="/news" >
+                    <a>Noticias</a>
+                </Link></li>
+                <li className="link"><Link href="/artists" >
+                    <a>Artistas</a>
+                </Link></li>
+                <li className="link"><Link href="/potcast" >
+                    <a>Podcasts</a>
+                </Link></li>
+                <li className="link"><Link href="/cosmere" >
+                    <a>Cosmere</a>
+                </Link></li>
                 <li className={setSpotlight(router.pathname)} id="lineNav"></li>
             </ul>
+            <button className="btn_login">
+                    <span>Iniciar seción</span>
+                    <img src="/images/icons/user.png"/>
+            </button>
         </nav>
         <style jsx>{ navbarStyle }</style>
         <style jsx>{`
-            .NavbarItems .barLine{
-                display: inline-block;
-                box-shadow: none;
-                width: 100px;
-            }
+            
             .NavbarItems ul li:nth-child(1){
                 width: 100px;
             }

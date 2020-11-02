@@ -31,42 +31,49 @@ export const navbarStyle = css`
 	margin-right: 50px;
 }
 
-.NavbarItems ul{
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-	float: right;
-	text-align: left;
-}
-.NavbarItems li{
-	display: block;
-	margin: 0;
-	padding: 0;
-	align-self: stretch;
-    z-index: 5;
-    color: #ffffff;
-    padding: 18px 20px;
-	font-size: 18px;
-}
-.NavbarItems li{
-	color: #ffffff;
-	right: 5%;
-    text-decoration: none;
-	transition: all .8s ease-in;
-	display: block;
-	padding: 18px 20px;
-	font-size: 18px;
-	border-left: 5px solid transparent;
+.nav_link{
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 0%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+	border-top: 55px solid #111111;
+	background: #333333;	
+	z-index: 5;
+	transition: all .5s ease-out;
 }
 
-.NavbarItems li:hover{
+.nav_link .link{
+	position: relative;
+	display: inline-block;
+	z-index: 5;
+	color: #ffffff;
+	text-decoration: none;
+	margin: 0;
+	padding: 0px;
+	font-size: 18px;
+	border-left: 5px solid transparent;
+	transition: all .8s ease-in;
+}
+
+.nav_link .link:hover{
 	color: rgb(197, 194, 19);
 	text-decoration: none;
 	text-shadow:0px 0px 10px #000000;
 	transition: all .2s ease-in;
 	list-style: none;
 	border-left: 5px solid #0088a9;
+}
+
+.link a{
+	min-width: 300px;
+	padding: 20px 20px;
+	display: inline-block;
 }
 
 .btn-lg{
@@ -96,20 +103,6 @@ export const navbarStyle = css`
 }
 .btn-lg:focus{
 	outline: none;
-}
-
-.NavbarItems .nav_link{
-	text-align: center;
-	clear: both;
-	width: 0;
-	transition: all .5s ease-out;
-	position: absolute;
-	top: 0;
-	right: 0;
-	border-top: 55px solid #111111;
-	background: #333333;
-	height: 100vh;
-	z-index: 5;
 }
 
 .NavbarItems .menuBtn{
@@ -183,29 +176,79 @@ export const navbarStyle = css`
 	display: none;
 }
 
+.btn_login{
+	position: absolute;
+	z-index: 999;
+	top: 0;
+	right: -200px;
+    height: 100%;
+    white-space: nowrap;
+	font-size: 18px;
+	background: none;
+	justify-content: flex-end;
+	display: flex;
+	align-items: center;
+	border: none;
+	outline:none;
+	color: #ffffff;
+	transition: all .5s ease-out;
+	opacity: 0.6;
+}
+.btn_login:hover{
+	opacity: 1.0;
+}
+
+.btn_login img{
+	margin-left: 18px;
+    width: 27px;
+    height: 27px;
+}
+
+.menuBtn:checked ~ .btn_login{
+	right: 70px;
+}
 
 @media all and (min-width: 768px){
-	.NavbarItems .nav_link {
+	.nav_link {
+		position: relative;
 		clear: none;
 		width: auto;
 		height: auto;
-		position: relative;
 		background: none;
 		padding: 0;
 		margin: 0;
 		display: flex;
+		flex-direction: row;
 		align-content: center;
 		border: none;
 	}
+	
 	.NavbarItems .menuIcon{
 		display: none;
 	}
-	.NavbarItems li{
+	.nav_link .link{
+		width: 100px;
         border: none;
-        
 	}
-	.NavbarItems li:hover{
+	.nav_link .link:hover{
 		border: none;
+	}
+	.link a{
+		min-width: 100px;
+		width: 100px;
+		text-align: center;
+		padding: 20px 0px;
+	}
+	.NavbarItems .barLine{
+        display: inline-block;
+        box-shadow: none;
+        width: 100px;
+	}
+	.btn_login{
+		position: absolute;
+		top: 0;
+		right: 30px;
+		font-size: 18px;
 	}
 }
 `

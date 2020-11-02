@@ -18,6 +18,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  user-select: none;
 }
 
 * {
@@ -48,6 +49,7 @@ section {
     padding: 10px 10px;
     transition: all .2s ease-out;
     user-select: none;
+    outline: none;
 }
 .btn-withe:hover{
     background: rgb(255, 255, 255);
@@ -67,6 +69,7 @@ section {
     padding: 10px 10px;
     transition: all .2s ease-out;
     user-select: none;
+    outline: none;
 }
 .btn-withe:hover{
     background: rgba(255, 255, 255, .8);

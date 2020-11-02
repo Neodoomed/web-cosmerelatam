@@ -94,7 +94,7 @@ h5{
     margin: 0;
 }
 .new{
-    width: 100%;
+    width: 100vw;
     min-height: 100px;
     position: relative;
     display: flex;
