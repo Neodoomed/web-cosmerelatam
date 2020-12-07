@@ -2,9 +2,11 @@ import Head from 'next/head'
 import Navbar from './navbar'
 import Footer from './footer'
 
+
 import { globalStyles } from './../styles/globalStyles'
 
 export default function MainConteiner(props){
+    
     return(
         <main>
             <Head>
@@ -28,6 +30,7 @@ export default function MainConteiner(props){
             <Navbar></Navbar>
             {props.children}
             <Footer></Footer>
+            
             <style global jsx>{ globalStyles }</style>
         </main>
 

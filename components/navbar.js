@@ -1,10 +1,14 @@
 import Link from 'next/link';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import { loginWithGoogle, onAuthStateChanged } from '../firebase/client'
 
 //import './../styles/navbar.css';
 import { navbarStyle } from './../styles/mainStyles';
+import LoginPopUp from './login/loginPopup';
+import UserPopUp from './login/userPopup';
 
-function setSpotlight(url){
+const setSpotlight = (url) =>{
     var spot = 'barLine set--'
     var newLoc = url.split("/")
     spot += newLoc[1]
@@ -14,8 +18,34 @@ function setSpotlight(url){
 
 export default function Navbar(props){
     const router = useRouter()
+
+    const [showLogin, setShowLogin] = useState(false);
+    const toggleLogin = () =>{
+        setShowLogin(!showLogin);
+    }
+
+    const [login, setLogin] = useState(null);
+    const handleClickG = () =>{
+        loginWithGoogle().then(user =>{
+            console.log(user);
+            setLogin(user);
+            toggleLogin();
+        }).catch( err => {
+            console.log(err);
+        });
+    }
+    useEffect(() => {
+        onAuthStateChanged(setLogin);
+    }, [] );
+
     return(
         <>
+        {
+            login === null ?
+                <LoginPopUp showMe={ showLogin } toggle={ toggleLogin } google={ handleClickG }/>
+            :
+                <UserPopUp showMe={ showLogin } toggle={ toggleLogin } />
+        }
         <nav className="NavbarItems">
 
             <span className="nav_logo"></span>
@@ -43,10 +73,18 @@ export default function Navbar(props){
                 </Link></li>
                 <li className={setSpotlight(router.pathname)} id="lineNav"></li>
             </ul>
-            <button className="btn_login">
+            {
+                login === null ?
+                 <button className="btn_login" onClick={toggleLogin}>
                     <span>Iniciar seción</span>
                     <img src="/images/icons/user.png"/>
-            </button>
+                </button>
+                :
+                <button className="btn_login logout" onClick={toggleLogin}>
+                    <span>{login.username}</span>
+                    <img src={login.avatar} className="logout" />
+                </button>
+            }
         </nav>
         <style jsx>{ navbarStyle }</style>
         <style jsx>{`

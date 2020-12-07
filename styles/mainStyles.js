@@ -197,11 +197,19 @@ export const navbarStyle = css`
 .btn_login:hover{
 	opacity: 1.0;
 }
-
 .btn_login img{
 	margin-left: 18px;
     width: 27px;
     height: 27px;
+}
+
+.logout img{
+	width: 35px;
+	height: 35px;
+	padding: 0;
+	margin: 0 10px;
+	border: solid 3px rgba(100, 100, 100, 1);
+	border-radius: 999px;
 }
 
 .menuBtn:checked ~ .btn_login{
@@ -254,6 +262,7 @@ export const navbarStyle = css`
 `
 
 export const footerStyle = css`
+
 .Footer{
     background-color: #202020;
     position: relative;
@@ -361,5 +370,112 @@ export const footerStyle = css`
 }
 .social a.ig:hover {
     background: #bb8d0e;
+}
+`
+
+export const popUp = css`
+.popUp{
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(5px);
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	z-index: 99;
+	overflow-x:hidden;
+    overflow-y:hidden;
+	display: none;
+}
+.popUp-content{
+	width: 500px;
+	height: 600px;
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px #000000;
+	border-top: solid 3px rgb(197, 194, 19);
+	padding: 5px 5px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+.popUp-content img{
+	width: 100px;
+	height: 100px;
+	border-radius: 999px;
+	background-color: #000000;
+	margin: 20px auto;
+	padding: 0;
+}
+.popUp-content h1{
+	margin: 0;
+	margin: 10px auto;
+}
+.popUp-content h5{
+	margin: 0;
+	margin: 10px auto;
+}
+.btn-exit{
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	font-size: 42px;
+	padding: 0px;
+	margin: 0px; 
+	transform: rotate(45deg);
+	cursor: pointer;
+	user-select: none;
+}
+.btn-login{
+	width: 250px;
+	height: 30px;
+	margin: 0 auto; 
+}
+.btn-login img{
+	width: 20px;
+	height: 20px;
+	margin: 0; 
+	margin-right: 10px;
+}
+`
+
+export const popUpScroll = css`
+
+.popUp{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	z-index: 2;
+	overflow-x:hidden;
+    overflow-y:hidden;
+	display: none;
+}
+.popUp-content{
+	width: 300px;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px #000000;
+	border-top: solid 3px rgb(197, 194, 19);
+	padding: 5px 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: center;
+	position: absolute;
+	top: 65px;
+	right: 30px;
+	padding: auto;
+	user-select: none;
+}
+
+.option{
+
 }
 `

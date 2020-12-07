@@ -12,12 +12,41 @@ const firebaseConfig = {
     measurementId: "G-YP20KEWYXN"
 };
 
-export default !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 const dbCon = firebase.firestore();
 
 //Seccion de Login
 
+const mapUserFormat = (user) => {
+    const {photoURL, displayName, email} = user;
+    return{
+        avatar: photoURL,
+        username: displayName,
+        email: email
+    }
+}
+
+export const loginWithGoogle = () =>{
+    const GoogleProvider = new firebase.auth.GoogleAuthProvider()
+    return firebase
+        .auth()
+        .signInWithPopup(GoogleProvider);
+}
+
+export const onAuthStateChanged = (onChange) => {
+    return firebase
+        .auth()
+        .onAuthStateChanged(user => {
+            const normalizedUser = 
+            user ? mapUserFormat(user) : null;
+            onChange(normalizedUser);
+        });
+}
+
+export const logOut = () => {
+    return firebase.auth().signOut();
+}
 
 
 //fetch de Noticias
