@@ -1,9 +1,4 @@
-import css from 'styled-jsx/css'
-
-const color = {
-    primary: '#393b40',
-    secondary: '#939313',
-}
+import css from 'styled-jsx/css';
 
 export const globalStyles = css.global`
 html,
@@ -11,6 +6,11 @@ body {
   background-color: #202020;
   padding: 0;
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+textarea , input{
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -26,7 +26,6 @@ a {
 }
 
 section {
-    position: relative;
     background-size: cover;
     background-position: right;
     background-position: left top;
@@ -65,7 +64,7 @@ section {
   outline: none;
 }
 .btn-withe:focus{
-	outline: none;
+  outline: none;
 }
 
 
@@ -95,10 +94,10 @@ section {
   outline: none;
 }
 .btn-black:focus{
-	outline: none;
+  outline: none;
 }
 
-`
+`;
 export const errorStyles = css`
 .non{
   min-width: 100%;
@@ -120,8 +119,8 @@ export const errorStyles = css`
 .non p{
   font-size: 24px;
 }
-`
+`;
 
 export const icons = css`
 
-`
+`;

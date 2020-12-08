@@ -7,13 +7,14 @@ import { fetchNew } from '../../firebase/client';
 import { articleStyles, newSecction } from '../../styles/newStyles';
 
 export default function ReedNews(props){
+
     const { content } = props
 
     return(
         <MainConteiner>
             <GoTop/>
             <Head>
-                <title>Cosmere-latam | { content.title } </title>
+                <title>Cosmere-latam | { content.error === '404' ? content.error : content.title} </title>
             </Head>
             <section className="new">
                 <div className="back">
@@ -23,9 +24,14 @@ export default function ReedNews(props){
                 </div>
                 <div className="body">
                     <div className="article">
-                        <h1>{ content.title }</h1>
-                        <span>Fecha de publicación { content.date }</span>
-                        <p>{ content.content }</p>
+                        <h1>{ content.error === '404' ?  
+                        `Error 404`
+                        : content.title} </h1>
+                        <span>Fecha de publicación { content.error !== null && content.date }</span>
+                        
+                        <div className="text">{ content.error !== '404' ? content.content : 
+                        "El posteo no hay sido encontrado. Es posible que fuera borrado, o que la direccion sea incorrecta."
+                        }</div>
                     </div>
                 </div>
             </section>
@@ -33,6 +39,8 @@ export default function ReedNews(props){
             <style jsx>{ newSecction }</style>
         </MainConteiner>
     )
+
+    
 }
 
 export async function getServerSideProps(ctx){

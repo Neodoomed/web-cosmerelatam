@@ -1,52 +1,101 @@
-import css from 'styled-jsx/css'
+import css from 'styled-jsx/css';
 
 const color = {
-    primary: '#393b40',
-    secondary: '#939313',
-    
+  primary: '#393b40',
+  secondary: '#939313',
 
-}
 
-export const globalStyles = css.global`
-    html,
-    body {
-    padding: 0;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    }
+};
 
-    a {
-    color: inherit;
-    text-decoration: none;
-    }
-
-    * {
-    box-sizing: border-box;
-    }
-`
-
-export const loginStyles = css`
-    section{
+export default css.global`
+    .Shadesmar{
         background: url("/images/shadesmar.jpg");
         background-size: cover;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        align-items: flex-start;
     }
-    .main{
-        position: relative;
-        background-color: rgba(200, 200, 200, .5);
-        min-width: 100%;
-        min-height: 100vh;
-        margin: auto;
-        border-radius: 5px;
-        padding: 40px 20px;
+    .navbar{
+        background-color: ${color.primary};
+        width: 300px;
+        height: 100vh;
+    }
+    .navbar>div, 
+    .navbar>div>a{
+        display: flex;
+        width: 300px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar .link{
+
     }
 
-    @media all and (min-width: 768px){
     .main{
-        
-        min-width: 600px;
-        height: 90vh;
-        min-height: 90vh;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    .main>div{
+        display: block;
+        min-width: 500px;
+        width: 900px;
+        background-color: rgba(200, 200, 200, .5);
+        margin: 0px;
+        border-radius: 5px;
+        padding: 40px 20px;
+        margin: auto;
+        margin-top: 100px
+    }
+    .main>.header_section{
+        min-width: 100%;
+        height: 150px;
+        background-color: transparent;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+    }
+    .header_section>div{
+        display: flex;
+        width: 300px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .user{
+        margin-left: auto;
+    }
+    .user>img{
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        margin: 0 10px;
+        border: solid 3px rgba(100, 100, 100, 1);
+        border-radius: 999px;
+    }
+    .content textarea{
+        width: 100%;
+        height: 400px;
+        background: rgba(230, 230, 230, .8);
+        border: none;
+        border-radius: 5px;
+        margin 10px 0px;
+        padding: 10px;
+        transition: all .3s ease-out;
+        resize: none;
+    }
+    .content textarea:hover{
+        background: rgba(255, 255, 255, .8);
+        box-shadow: 0 0 0 4px rgb(197, 194, 19);
+        outline: none;
+    }
+    .content textarea:focus{
+        box-shadow: 0 0 0 4px rgb(197, 194, 19);
+        outline: none;
     }
 }
-`
+`;

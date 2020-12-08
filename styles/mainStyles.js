@@ -1,4 +1,4 @@
-import css from 'styled-jsx/css'
+import css from 'styled-jsx/css';
 
 export const navbarStyle = css`
 .NavbarItems {
@@ -259,7 +259,7 @@ export const navbarStyle = css`
 		font-size: 18px;
 	}
 }
-`
+`;
 
 export const footerStyle = css`
 
@@ -371,7 +371,7 @@ export const footerStyle = css`
 .social a.ig:hover {
     background: #bb8d0e;
 }
-`
+`;
 
 export const popUp = css`
 .popUp{
@@ -439,7 +439,7 @@ export const popUp = css`
 	margin: 0; 
 	margin-right: 10px;
 }
-`
+`;
 
 export const popUpScroll = css`
 
@@ -478,4 +478,4 @@ export const popUpScroll = css`
 .option{
 
 }
-`
+`;

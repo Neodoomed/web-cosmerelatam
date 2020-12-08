@@ -1,9 +1,9 @@
-import css from 'styled-jsx/css'
+import css from 'styled-jsx/css';
 
 const color = {
-    primary: '#393b40',
-    secondary: '#939313',
-}
+  primary: '#393b40',
+  secondary: '#939313',
+};
 
 export const newSecction = css`
     section {
@@ -22,7 +22,7 @@ export const newSecction = css`
     }
 }
     
-`
+`;
 
 export const newStyle = css`
 h5{
@@ -219,7 +219,7 @@ h5{
         font-size: 12px;
     }
 }
-`
+`;
 
 export const sliderStyle = css`
 .topNews{
@@ -413,7 +413,7 @@ input[id="slider3"]:checked ~ .sliderBar label[for="slider3"]{
         transform: translate(-700px, 0);
     }
 }
-`
+`;
 
 export const articleStyles = css`
 div{
@@ -455,6 +455,11 @@ p {
     color: #000000;
     font-weight: 400;
 }
+.text{
+    color: #000000;
+    font-weight: 400;
+    font-size: 16px;
+}
 
 @media all and (min-width: 768px){
     .article{
@@ -493,4 +498,4 @@ p {
     }
 }
 
-`
+`;

@@ -1,39 +1,38 @@
-import { useEffect} from 'react';
-import { icons } from '../styles/globalStyles'
+import {useEffect} from 'react';
+import {icons} from '../styles/globalStyles';
 
-export default function GoTop(props){
-
-    const handleScroll = (event) => {
-        event.preventDefault();
-        if (window.scrollY > 100){
-            document.querySelector('.goTopConteiner')
-                .classList.add('show')
-        }else{
-            document.querySelector('.goTopConteiner')
-                .classList.remove('show')
-        }
+export default function GoTop(props) {
+  const handleScroll = (event) => {
+    event.preventDefault();
+    if (window.scrollY > 100) {
+      document.querySelector('.goTopConteiner')
+          .classList.add('show');
+    } else {
+      document.querySelector('.goTopConteiner')
+          .classList.remove('show');
     }
+  };
 
-    const handleClick = (event) => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        })
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
+  const handleClick = (event) => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
     });
-    
-    return(
-        <>
-            <div className="goTopConteiner btn-black" onClick={ handleClick }>
-                <span className="arrows"></span>
-            </div>
+  };
 
-            <style jsx>{ icons }</style>
-            <style jsx>{`
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+  return (
+    <>
+      <div className="goTopConteiner btn-black" onClick={ handleClick }>
+        <span className="arrows"></span>
+      </div>
+
+      <style jsx>{ icons }</style>
+      <style jsx>{`
                 .goTopConteiner{
                     width: 50px;
                     height: 50px;
@@ -102,6 +101,6 @@ export default function GoTop(props){
 
 
             `}</style>
-        </>
-    )
+    </>
+  );
 }

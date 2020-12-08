@@ -1,93 +1,103 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
-import { loginWithGoogle, onAuthStateChanged } from '../firebase/client'
+import {useRouter} from 'next/router';
+import {useState} from 'react';
 
-//import './../styles/navbar.css';
-import { navbarStyle } from './../styles/mainStyles';
+import {loginWithGoogle} from '../firebase/client';
+import useUser from '../hook/useUser';
+
+// import './../styles/navbar.css';
+import {navbarStyle} from './../styles/mainStyles';
 import LoginPopUp from './login/loginPopup';
 import UserPopUp from './login/userPopup';
 
 const setSpotlight = (url) =>{
-    var spot = 'barLine set--'
-    var newLoc = url.split("/")
-    spot += newLoc[1]
-    return(spot)
-}
+  let spot = 'barLine set--';
+  const newLoc = url.split('/');
+  spot += newLoc[1];
+  return (spot);
+};
 
 
-export default function Navbar(props){
-    const router = useRouter()
+export default function Navbar(props) {
+  const router = useRouter();
 
-    const [showLogin, setShowLogin] = useState(false);
-    const toggleLogin = () =>{
-        setShowLogin(!showLogin);
-    }
+  const [showLogin, setShowLogin] = useState(false);
+  const toggleLogin = () =>{
+    setShowLogin(!showLogin);
+  };
+  const login = useUser();
 
-    const [login, setLogin] = useState(null);
-    const handleClickG = () =>{
-        loginWithGoogle().then(user =>{
-            console.log(user);
-            setLogin(user);
-            toggleLogin();
-        }).catch( err => {
-            console.log(err);
-        });
-    }
-    useEffect(() => {
-        onAuthStateChanged(setLogin);
-    }, [] );
+  const handleClickG = () =>{
+    loginWithGoogle().then((user) =>{
+      setLogin(user);
+      toggleLogin();
+    }).catch( (err) => {
+      console.log(err);
+    });
+  };
 
-    return(
-        <>
-        {
+  return (
+    <>
+      {
             login === null ?
-                <LoginPopUp showMe={ showLogin } toggle={ toggleLogin } google={ handleClickG }/>
-            :
+                <LoginPopUp
+                  showMe={ showLogin }
+                  toggle={ toggleLogin }
+                  google={ handleClickG }
+                /> :
                 <UserPopUp showMe={ showLogin } toggle={ toggleLogin } />
-        }
-        <nav className="NavbarItems">
+      }
+      <nav className="NavbarItems">
 
-            <span className="nav_logo"></span>
-            
-            <input type="checkbox" className="menuBtn" id="menuBtn"/>
-            <label className="menuIcon" htmlFor="menuBtn">
-                <span className="bars"></span>
-            </label>
+        <span className="nav_logo"></span>
 
-            <ul className="nav_link">
-                <li className="link"><Link href="/" >
-                    <a>Home</a>
-                </Link></li>
-                <li className="link"><Link href="/news" >
-                    <a>Noticias</a>
-                </Link></li>
-                <li className="link"><Link href="/artists" >
-                    <a>Artistas</a>
-                </Link></li>
-                <li className="link"><Link href="/potcast" >
-                    <a>Podcasts</a>
-                </Link></li>
-                <li className="link"><Link href="/cosmere" >
-                    <a>Cosmere</a>
-                </Link></li>
-                <li className={setSpotlight(router.pathname)} id="lineNav"></li>
-            </ul>
-            {
-                login === null ?
+        <input type="checkbox" className="menuBtn" id="menuBtn"/>
+        <label className="menuIcon" htmlFor="menuBtn">
+          <span className="bars"></span>
+        </label>
+
+        <ul className="nav_link">
+          <li className="link"><Link href="/" >
+            <a>Home</a>
+          </Link></li>
+          <li className="link"><Link href="/news" >
+            <a>Noticias</a>
+          </Link></li>
+          <li className="link"><Link href="/artists" >
+            <a>Artistas</a>
+          </Link></li>
+          <li className="link"><Link href="/potcast" >
+            <a>Podcasts</a>
+          </Link></li>
+          <li className="link"><Link href="/cosmere" >
+            <a>Cosmere</a>
+          </Link></li>
+          <li className={setSpotlight(router.pathname)} id="lineNav"></li>
+        </ul>
+        {
+          login === null &&
                  <button className="btn_login" onClick={toggleLogin}>
-                    <span>Iniciar seción</span>
-                    <img src="/images/icons/user.png"/>
-                </button>
-                :
+                   <span>Iniciar seción</span>
+                   <img src="/images/icons/user.png"/>
+                 </button>
+        }
+        {
+          login && login.username &&
                 <button className="btn_login logout" onClick={toggleLogin}>
-                    <span>{login.username}</span>
-                    <img src={login.avatar} className="logout" />
+                  <span>{login.username}</span>
+                  <img src={login.avatar} className="logout" />
                 </button>
-            }
-        </nav>
-        <style jsx>{ navbarStyle }</style>
-        <style jsx>{`
+        }
+        {
+          login === undefined &&
+                <button className="btn_login logout" onClick={toggleLogin}>
+                  <span></span>
+                  <img src="/images/icons/user.png" className="logout" />
+                </button>
+        }
+      </nav>
+      <style jsx>{ navbarStyle }</style>
+      <style jsx>{`
             
             .NavbarItems ul li:nth-child(1){
                 width: 100px;
@@ -114,17 +124,18 @@ export default function Navbar(props){
                 width: 100px;
             }
             .set--potcast, .NavbarItems ul li:nth-child(4):hover ~ .barLine{
-                width: 100px;	
+                width: 100px;
                 transform: translate(300px);
             }
             .NavbarItems ul li:nth-child(5){
                 width: 100px;
             }
-            .set--cosmeremecum, .NavbarItems ul li:nth-child(5):hover ~ .barLine{
-                width: 100px;	
+            .set--cosmeremecum,
+            .NavbarItems ul li:nth-child(5):hover ~ .barLine{
+                width: 100px;
                 transform: translate(400px);
             }
         `}</style>
-        </>
-    );
+    </>
+  );
 }

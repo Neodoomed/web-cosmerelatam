@@ -1,4 +1,4 @@
-import css from 'styled-jsx/css'
+import css from 'styled-jsx/css';
 
 export const homeStyle = css`
 .banner{
@@ -103,4 +103,4 @@ export const homeStyle = css`
         transform: translate(0px, -55vh);
     }
 }
-`
+`;
