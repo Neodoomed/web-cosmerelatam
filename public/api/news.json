@@ -1,0 +1,38 @@
+[
+    {
+      "ID": "1004",
+      "Title": "Test 4",
+      "News": "Era su lema. Parte de su lema, al menos. \"Vida antes que muerte. Fuerza antes que debilidad. Viaje antes que destino\".",
+      "UserID": "2",
+      "Date": "2020-10-18",
+      "Section": "news",
+      "Banner": "null"
+    },
+    {
+      "ID": "1000",
+      "Title": "Mensaje prueba 1",
+      "News": "Escribo estas palabras en acero, pues todo lo que no esté grabado en metal es indigno de confianza.",
+      "UserID": "1",
+      "Date": "2020-10-17",
+      "Section": "news",
+      "Banner": "null"
+    },
+    {
+      "ID": "1002",
+      "Title": "Mensaje prueba 2",
+      "News": "Szeth-hijo-hijo-Vallano, sin-verdad de Shinovar, vestía de blanco el día que iba a matar a un rey.",
+      "UserID": "1",
+      "Date": "2020-10-17",
+      "Section": "event",
+      "Banner": "null"
+    },
+    {
+      "ID": "1003",
+      "Title": "Mensaje prueba 3",
+      "News": "Aunque otros hombres sigan ciegamente la verdad, recuerda. Nada es verdad.\r\nAunque otros hombres se dejen coartar por la moral o la ley, recuerda. Todo está permitido.\r\n",
+      "UserID": "1",
+      "Date": "2020-10-17",
+      "Section": "adds",
+      "Banner": "null"
+    }
+]
