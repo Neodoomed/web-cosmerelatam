@@ -2,8 +2,7 @@ import Head from 'next/head';
 import Navbar from './navbar';
 import Footer from './footer';
 
-
-import {globalStyles} from './../styles/globalStyles';
+import { globalStyles } from './../styles/globalStyles';
 
 export default function MainConteiner(props) {
   return (
@@ -23,15 +22,16 @@ export default function MainConteiner(props) {
         />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#317EFB"/>
+        <meta name="theme-color" content="#317EFB" />
         <link rel="apple-touch-icon" href="/images/icon.png" />
       </Head>
       <Navbar></Navbar>
       {props.children}
       <Footer></Footer>
 
-      <style global jsx>{ globalStyles }</style>
+      <style global jsx>
+        {globalStyles}
+      </style>
     </main>
-
   );
 }

@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: 'cosmere-latam.appspot.com',
   messagingSenderId: '448096953500',
   appId: '1:448096953500:web:6b09b61e0640f13d253959',
-  measurementId: 'G-YP20KEWYXN',
+  measurementId: 'G-YP20KEWYXN'
 };
 
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
@@ -19,109 +19,103 @@ const dbCon = firebase.firestore();
 // Seccion de Login
 
 const mapUserFormat = (user) => {
-  const {photoURL, displayName, email} = user;
+  const { photoURL, displayName, email } = user;
   return {
     avatar: photoURL,
     username: displayName,
-    email: email,
+    email: email
   };
 };
 
-export const loginWithGoogle = () =>{
+export const loginWithGoogle = () => {
   const GoogleProvider = new firebase.auth.GoogleAuthProvider();
-  return firebase
-      .auth()
-      .signInWithPopup(GoogleProvider);
+  return firebase.auth().signInWithPopup(GoogleProvider);
 };
 
 export const onAuthStateChanged = (onChange) => {
-  return firebase
-      .auth()
-      .onAuthStateChanged((user) => {
-        const normalizedUser =
-            user ? mapUserFormat(user) : null;
-        onChange(normalizedUser);
-      });
+  return firebase.auth().onAuthStateChanged((user) => {
+    const normalizedUser = user ? mapUserFormat(user) : null;
+    onChange(normalizedUser);
+  });
 };
 
 export const logOut = () => {
   return firebase.auth().signOut();
 };
 
-
 // fetch de Noticias
-export const fetchNewsList = (section, page) =>{
-  if (section=='all') {
+export const fetchNewsList = (section, page) => {
+  if (section == 'all') {
     return dbCon
-        .collection('news')
-        .limit(page)
-        .orderBy('date', 'desc')
-        .get()
-        .then((snapshot) => {
-          return snapshot.docs.map((doc) =>{
-            const data = doc.data();
-            const id = doc.id;
-            const {date} = data;
-            const normalizedDate =new Date(date.seconds * 1000).toString();
+      .collection('news')
+      .limit(page)
+      .orderBy('date', 'desc')
+      .get()
+      .then((snapshot) => {
+        return snapshot.docs.map((doc) => {
+          const data = doc.data();
+          const id = doc.id;
+          const { date } = data;
+          const normalizedDate = new Date(date.seconds * 1000).toString();
 
-            const splitDate = normalizedDate.split('(');
+          const splitDate = normalizedDate.split('(');
 
-            return {
-              id,
-              ...data,
-              date: splitDate[0],
-            };
-          });
+          return {
+            id,
+            ...data,
+            date: splitDate[0]
+          };
         });
+      });
   } else {
     return dbCon
-        .collection('news')
-        .orderBy('date', 'desc')
-        .where('section', '==', section)
-        .limit(page)
-        .get()
-        .then((snapshot) => {
-          return snapshot.docs.map((doc) =>{
-            const data = doc.data();
-            const id = doc.id;
-            const {date} = data;
-            const normalizedDate = new Date(date.seconds * 1000).toString();
+      .collection('news')
+      .orderBy('date', 'desc')
+      .where('section', '==', section)
+      .limit(page)
+      .get()
+      .then((snapshot) => {
+        return snapshot.docs.map((doc) => {
+          const data = doc.data();
+          const id = doc.id;
+          const { date } = data;
+          const normalizedDate = new Date(date.seconds * 1000).toString();
 
-            const splitDate = normalizedDate.split('(');
+          const splitDate = normalizedDate.split('(');
 
-            return {
-              id,
-              ...data,
-              date: splitDate[0],
-            };
-          });
+          return {
+            id,
+            ...data,
+            date: splitDate[0]
+          };
         });
+      });
   }
 };
 
-export const fetchNew = (id) =>{
+export const fetchNew = (id) => {
   return dbCon
-      .collection('news')
-      .doc(id)
-      .get()
-      .then((snapshot) => {
-        const data = snapshot.data();
-        if (data) {
-          const {date} = data;
-          const normalizedDate =new Date(date.seconds * 1000).toString();
-          return {
-            ...data,
-            date: normalizedDate,
-          };
-        } else {
-          return {
-            error: '404',
-          };
-        }
-      });
+    .collection('news')
+    .doc(id)
+    .get()
+    .then((snapshot) => {
+      const data = snapshot.data();
+      if (data) {
+        const { date } = data;
+        const normalizedDate = new Date(date.seconds * 1000).toString();
+        return {
+          ...data,
+          date: normalizedDate
+        };
+      } else {
+        return {
+          error: '404'
+        };
+      }
+    });
 };
 
-export const addNews = (userId, titel, subTitle, banner, content, section) =>{
+export const addNews = (userId, titel, subTitle, banner, content, section) => {
   return dbCon.collection('news').add({
     userId,
     titel,
@@ -129,6 +123,6 @@ export const addNews = (userId, titel, subTitle, banner, content, section) =>{
     banner,
     content,
     section,
-    date: firebase.firestote.Timestaps.fromDate(new Date()),
+    date: firebase.firestote.Timestaps.fromDate(new Date())
   });
 };

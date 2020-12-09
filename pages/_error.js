@@ -1,5 +1,5 @@
-import {errorStyles} from '../styles/globalStyles';
-import MainConteiner from './../components/main';
+import { errorStyles } from 'styles/globalStyles';
+import MainConteiner from 'components/main';
 
 export default function Index() {
   return (
@@ -12,7 +12,7 @@ export default function Index() {
             <p>No intentes saltar entre mundos si no conoces las rutas.</p>
           </div>
         </section>
-        <style jsx>{ errorStyles }</style>
+        <style jsx>{errorStyles}</style>
       </MainConteiner>
     </>
   );

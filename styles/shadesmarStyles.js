@@ -1,8 +1,8 @@
 import css from 'styled-jsx/css';
 
 const color = {
-    primary: '#393b40',
-    secondary: '#939313',
+  primary: '#393b40',
+  secondary: '#939313'
 };
 
 export default css.global`

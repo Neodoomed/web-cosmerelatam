@@ -1,4 +1,4 @@
-import ShadesmarNav from '../../components/shadesmar/shadesmarNav';
+import ShadesmarNav from 'components/shadesmar/shadesmarNav';
 export default function PostNews() {
   return (
     <ShadesmarNav>
