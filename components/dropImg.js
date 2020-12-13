@@ -33,7 +33,7 @@ export default function dropIMG(props) {
     console.log(event.dataTransfer.files[0]);
     setDrag(DRAG_IMAGE_STATE.NONE);
     const file = event.dataTransfer.files[0];
-    const task = uploadImage(file, props.folder);
+    const task = uploadImage(file, props);
     setTask(task);
   };
 
