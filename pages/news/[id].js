@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import Head from 'next/head';
+
 import MainConteiner from 'components/main';
 import GoTop from 'components/goTop';
+import TextHadle from 'api/textHandle';
 
 import { fetchNew } from '../../firebase/client';
 import { articleStyles, newSecction } from '../../styles/newStyles';
@@ -31,9 +33,9 @@ export default function ReedNews(props) {
               Fecha de publicación {content.error !== null && content.date}
             </span>
 
-            <div className="text">
+            <div className="text" style={{ whiteSpace: 'pre-line' }}>
               {content.error !== '404'
-                ? content.content
+                ? `${content.content}`
                 : 'El posteo no hay sido encontrado. Es posible que fuera borrado, o que la direccion sea incorrecta.'}
             </div>
           </div>

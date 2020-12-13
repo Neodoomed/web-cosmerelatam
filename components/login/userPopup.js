@@ -1,7 +1,10 @@
+import Link from 'next/link';
+
 import { logOut } from 'firebase/client';
 import { popUpScroll } from 'styles/mainStyles';
 
 export default function logutPopUp(props) {
+  const { uid, level } = props.user;
   const handleLogOut = () => {
     logOut();
     props.toggle();
@@ -14,10 +17,16 @@ export default function logutPopUp(props) {
       onClick={props.toggle}
     >
       <div className="popUp-content">
-        <span className="option">Cuenta</span>
+        <Link href="/user/panel/[id]" as={`/user/panel/${uid}`}>
+          <span className="option">Cuenta</span>
+        </Link>
         <span> | </span>
-        <span className="option">Shadesmar</span>
-        <span> | </span>
+        {props.user && level === 'admin' && (
+          <Link href="/shadesmar">
+            <span className="option">Shadesmar</span>
+          </Link>
+        )}
+        {props.user && level === 'admin' && <span> | </span>}
         <span className="option" onClick={handleLogOut}>
           Desconectar
         </span>

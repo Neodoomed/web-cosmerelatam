@@ -19,8 +19,9 @@ const dbCon = firebase.firestore();
 // Seccion de Login
 
 const mapUserFormat = (user) => {
-  const { photoURL, displayName, email } = user;
+  const { photoURL, displayName, email, uid } = user;
   return {
+    uid: uid,
     avatar: photoURL,
     username: displayName,
     email: email
@@ -29,7 +30,27 @@ const mapUserFormat = (user) => {
 
 export const loginWithGoogle = () => {
   const GoogleProvider = new firebase.auth.GoogleAuthProvider();
-  return firebase.auth().signInWithPopup(GoogleProvider);
+  return firebase
+    .auth()
+    .signInWithPopup(GoogleProvider)
+    .then((cred) => {
+      const Ref = dbCon.collection('users').doc(cred.user.uid);
+      const getUser = Ref.get().then((doc) => {
+        if (doc.exists) {
+          console.log('Usuario Existe');
+        } else {
+          console.log('Usuario no existe');
+          Ref.set({
+            username: cred.user.displayName,
+            email: cred.user.email,
+            avatar: cred.user.photoURL,
+            level: 'user'
+          }).then(() => {
+            console.log('Usuario creado');
+          });
+        }
+      });
+    });
 };
 
 export const onAuthStateChanged = (onChange) => {
@@ -37,6 +58,24 @@ export const onAuthStateChanged = (onChange) => {
     const normalizedUser = user ? mapUserFormat(user) : null;
     onChange(normalizedUser);
   });
+};
+
+export const getUserInfo = async (id) => {
+  return await dbCon
+    .collection('users')
+    .doc(id)
+    .get()
+    .then((snapshot) => {
+      const data = snapshot.data();
+      if (data) {
+        return {
+          uid: id,
+          ...data
+        };
+      } else {
+        return null;
+      }
+    });
 };
 
 export const logOut = () => {
@@ -115,14 +154,27 @@ export const fetchNew = (id) => {
     });
 };
 
-export const addNews = (userId, titel, subTitle, banner, content, section) => {
+export const addNews = ({
+  userId,
+  title,
+  subTitle,
+  banner,
+  content,
+  section
+}) => {
   return dbCon.collection('news').add({
     userId,
-    titel,
+    title: title,
     subTitle,
     banner,
     content,
     section,
-    date: firebase.firestote.Timestaps.fromDate(new Date())
+    date: firebase.firestore.Timestamp.fromDate(new Date())
   });
+};
+
+export const uploadImage = (file, folder) => {
+  const ref = firebase.storage().ref(`${folder}/${file.name}`);
+  const task = ref.put(file);
+  return task;
 };

@@ -96,6 +96,11 @@ export const globalStyles = css.global`
   .btn-black:focus {
     outline: none;
   }
+
+  button[disabled] {
+    pointer-events: none;
+    opacity: 0.2;
+  }
 `;
 export const errorStyles = css`
   .non {

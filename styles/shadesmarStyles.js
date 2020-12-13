@@ -18,6 +18,9 @@ export default css.global`
         background-color: ${color.primary};
         width: 300px;
         height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
     }
     .navbar>div, 
     .navbar>div>a{
@@ -35,6 +38,7 @@ export default css.global`
         display: flex;
         width: 100%;
         flex-direction: column;
+        margin-left: 300px;
     }
     .main>div{
         display: block;
@@ -75,7 +79,9 @@ export default css.global`
         border: solid 3px rgba(100, 100, 100, 1);
         border-radius: 999px;
     }
-    .content textarea{
+    .content textarea, 
+    .content input,
+    .content select{
         width: 100%;
         height: 400px;
         background: rgba(230, 230, 230, .8);
@@ -86,14 +92,24 @@ export default css.global`
         transition: all .3s ease-out;
         resize: none;
     }
-    .content textarea:hover{
+    .content textarea:hover,
+    .content input:hover,
+    .content select:hover{
         background: rgba(255, 255, 255, .8);
         box-shadow: 0 0 0 4px rgb(197, 194, 19);
         outline: none;
     }
-    .content textarea:focus{
+    .content textarea:focus,
+    .content input:focus,
+    .content select:focus{
         box-shadow: 0 0 0 4px rgb(197, 194, 19);
         outline: none;
+    }
+    .content input{
+        height: 40px;
+    }
+    .content select{
+        height: 40px;
     }
 }
 `;

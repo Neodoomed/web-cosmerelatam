@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import { loginWithGoogle } from '../firebase/client';
+import { loginWithGoogle } from 'firebase/client';
 import useUser from '../hook/useUser';
 
 // import './../styles/navbar.css';
@@ -25,7 +25,6 @@ export default function Navbar(props) {
     setShowLogin(!showLogin);
   };
   const login = useUser();
-
   const handleClickG = () => {
     loginWithGoogle()
       .then((user) => {
@@ -39,14 +38,15 @@ export default function Navbar(props) {
 
   return (
     <>
-      {login === null ? (
+      {login === null && (
         <LoginPopUp
           showMe={showLogin}
           toggle={toggleLogin}
           google={handleClickG}
         />
-      ) : (
-        <UserPopUp showMe={showLogin} toggle={toggleLogin} />
+      )}
+      {login && (
+        <UserPopUp showMe={showLogin} toggle={toggleLogin} user={login} />
       )}
       <nav className="NavbarItems">
         <span className="nav_logo"></span>

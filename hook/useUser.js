@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 import { useState, useEffect } from 'react';
 
-import { onAuthStateChanged } from 'firebase/client';
+import { onAuthStateChanged, getUserInfo } from 'firebase/client';
 
 const USER_STATES = {
   NOT_LOGGED: null,
@@ -10,8 +10,14 @@ const USER_STATES = {
 
 export default function useUser() {
   const [login, setLogin] = useState(USER_STATES.NOT_KNOWN);
+  const [user, setUser] = useState(USER_STATES.NOT_LOGGED);
   useEffect(() => {
     onAuthStateChanged(setLogin);
   }, []);
-  return login;
+
+  useEffect(() => {
+    if (login) getUserInfo(login.uid).then(setUser);
+  }, [login]);
+
+  return login && user ? user : login;
 }
